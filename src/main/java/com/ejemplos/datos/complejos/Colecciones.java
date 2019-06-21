@@ -80,7 +80,7 @@ public class Colecciones {
 				new Direccion("calle2","14"),
 				new Direccion("calle1","12")
 		};
-		Set<Direccion> conjuntoDirecciones=new HashSet<Direccion>();
+		Set<Direccion> conjuntoDirecciones=new TreeSet<Direccion>(Comparator.comparing(Direccion::getCalle));
 		conjuntoDirecciones.add(direcciones[0]);
 		conjuntoDirecciones.add(direcciones[1]);
 		conjuntoDirecciones.add(direcciones[2]);
