@@ -21,6 +21,7 @@ public class Colecciones {
 
 		 */
 	}
+
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		List<String> listado=new LinkedList<String>();
@@ -51,8 +52,28 @@ public class Colecciones {
 			System.out.println("Cadena: "+a);
 		}
 
+		// Ordenado
 
+		listado.sort( Comparator.comparing( String::toString ) );
+		// Inverso
+		listado.sort( Comparator.comparing( String::valueOf ).reversed() );
+		// Ordenado
+		Collections.sort(listado);
+		// Inverso
+		Collections.sort(listado, Collections.reverseOrder());
 
+		List<Direccion> listadoDirecciones = new LinkedList<>();
+		Direccion d1 = new Direccion();
+		d1.setCalle("Salamanca");
+		d1.setNumero("12");
+		Direccion d2 = new Direccion();
+		d2.setCalle("Madrid");
+		d2.setNumero("12");
+		listadoDirecciones.add(d2);
+		listadoDirecciones.sort(Comparator.comparing(Direccion::toString));
+		for (Direccion d :listadoDirecciones) {
+			System.out.println(d);
+		}
 
 
 		int count[] = {34, 22,10,60,30,22};
