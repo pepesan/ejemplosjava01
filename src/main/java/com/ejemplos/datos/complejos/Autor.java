@@ -1,6 +1,7 @@
 package com.ejemplos.datos.complejos;
 
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 
 public class Autor {
@@ -39,5 +40,18 @@ public class Autor {
                 "nombre='" + nombre + '\'' +
                 ", librosEscritos=" + librosEscritos +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Autor autor = (Autor) o;
+        return Objects.equals(nombre, autor.nombre) ;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(nombre);
     }
 }

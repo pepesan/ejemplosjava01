@@ -1,5 +1,7 @@
 package com.ejemplos.datos.complejos;
 
+import java.util.Objects;
+
 public class Libro {
     private String titulo;
     private Autor autor;
@@ -35,5 +37,19 @@ public class Libro {
         return "Libro{" +
                 "titulo='" + titulo +"'"+
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Libro libro = (Libro) o;
+        return Objects.equals(titulo, libro.titulo) &&
+                Objects.equals(autor, libro.autor);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(titulo, autor);
     }
 }

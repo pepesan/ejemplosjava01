@@ -36,6 +36,7 @@ public class Colecciones {
 		imprimeListado(listado);
 		listado.remove(0);
 		imprimeListado(listado);
+		System.out.println(listado.get(0));
 		if(listado.isEmpty()){
 			System.out.println("Listado Vacio");
 		}
@@ -107,9 +108,15 @@ public class Colecciones {
 		mapa.put(1,"Valor16");
 		mapa.put(2,"Valor11");
 		mapa.put(3,"Valor10");
+		System.out.println(mapa.get(0));
+		mapa.remove(0);
+		System.out.println(mapa);
 		mapa=new HashMap<String,String>();
 		mapa.put("nombre","Pepe");
 		mapa.put("dni","789654A");
+		System.out.println(mapa.get("nombre"));
+		mapa.remove("Pepe");
+
 		mapa=new HashMap<String,Cliente>();
 		mapa.put("Cod1234",new Cliente());
 		Cliente client=(Cliente) mapa.get("Cod1234");
