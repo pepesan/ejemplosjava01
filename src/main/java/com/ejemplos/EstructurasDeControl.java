@@ -105,6 +105,7 @@ public class EstructurasDeControl {
 				break;
 		}
 		// Java 12
+		/*
 		switch (cadena){
 			case "Valor2","Valor" -> {System.out.println("vale 'Valor'");}
 			case "Sin Valor" -> {System.out.println("Sin Valor");}
@@ -116,6 +117,8 @@ public class EstructurasDeControl {
             default-> "Otro Valor";
         };
 
+
+		 */
 
 		// for de tipo simple
 		for (i=0;i<3;i++){
