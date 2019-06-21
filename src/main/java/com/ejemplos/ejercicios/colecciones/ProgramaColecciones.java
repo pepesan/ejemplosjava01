@@ -14,8 +14,9 @@ public class ProgramaColecciones {
             p= new Pieza("Pieza", "Tipo "+i);
             listado.add(p);
         }
-
         o.setPiezas(listado);
+        List<Pieza> listadoPieza= new ArrayList<>(listado);
+        listadoPieza.sort(Comparator.comparing(Pieza::toString));
         System.out.println(o);
         p = new Pieza("Pieza", "Tipo "+1);
         o.getPiezas().add(p);
@@ -31,6 +32,7 @@ public class ProgramaColecciones {
                 new ArrayList<Map<String, String>>();
         listadoMapa.add(cliente);
         System.out.println(listadoMapa);
+
 
 
 
