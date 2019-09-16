@@ -21,8 +21,27 @@ public class Operadores {
 		System.out.println(d);
 		d=i%j;
 		System.out.println(d);
+		++i;
+		// i = i +1;
 		i++;
 		System.out.println(i);
+		i= 1;
+		j= 2;
+		j = 2 + ++i;
+		// j = 2 + ++i;
+		// j = 2 + (++i);
+		// j = 2 + (2);
+		// j = 4;
+		// i = 2;
+		System.out.println(j);
+		i = 1;
+		j = 2 + i++;
+		// j = 2 + i;
+		// ++i;
+		// j = 2 + 1;
+		// j = 3;
+		// i = 2;
+		System.out.println(j);
 		i--;
 		System.out.println(i);
 		//Operador condicional
@@ -31,6 +50,7 @@ public class Operadores {
 		System.out.println(s);
 		i=2;
 		j=3;
+		// i = i +j; // ==5
 		i+=j;
 		System.out.println(i);
 		i-=j;
@@ -42,6 +62,9 @@ public class Operadores {
 		j=2;
 		f/=j;
 		System.out.println(f);
+
+		// i = i & j;
+		// i&=j;
 		for(i=0;i<10;i++){
 			if(i==2){
 				continue;

@@ -1,4 +1,4 @@
-package com.ejemplos;
+package com.ejemplos.datos;
 
 public class EstructurasDeControl {
 
@@ -83,6 +83,11 @@ public class EstructurasDeControl {
 			case 1:
 				System.out.println("vale 1");
 				break;
+			case 2:
+				// break;
+			case 3:
+				System.out.println("vale 2 ó 3");
+				break;
 			default:
 				System.out.println("entra en default " +
 						"No coincide con los cases");
@@ -138,7 +143,9 @@ public class EstructurasDeControl {
 		}while (i<3);
 
 		System.out.println("Entrada al bucle for");
+		// condición de salida (i=>10 || j>=8)
 		for(i=0,j=0;i<10 && j<8;i++,j--){
+		// for (i=0,j=0;i<10;i++, j--){
 			System.out.println(i);
 			System.out.println(j);
 		}
