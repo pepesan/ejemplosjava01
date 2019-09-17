@@ -10,7 +10,10 @@ public class Cadenas {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		String texto1 = "¡Prueba de texto!";
+		System.out.println(texto1);
 		texto1 = new String ("¡Prueba de texto!");
+		char [] mi_palabra = {'P','r','u','e','b','a'};
+		texto1 = new String(mi_palabra);
 		System.out.println(texto1);
 		System.out.println("Hola Mundo!".length());
 		String texto2; // = null;
@@ -53,7 +56,7 @@ public class Cadenas {
 		System.out.println(s2);
 		System.out.println(s2.length());
 		String s3="Hola Mundo";
-		if(s3.equals(s3)){
+		if(s2.equals(s3)){
 			System.out.println("Son iguales");
 		}else{
 			System.out.println("No son iguales");
@@ -77,11 +80,6 @@ public class Cadenas {
 		for(String dia:adias){
 			System.out.println(dia);
 		}
-		
-		
-		/**
-		 * prueba comentario Mireia 
-		 */
 	}
 
 }
