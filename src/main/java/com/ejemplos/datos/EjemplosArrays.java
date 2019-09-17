@@ -32,7 +32,8 @@ public class EjemplosArrays {
 		// TODO Auto-generated method stub
 		int[] array_int = new int [100] ;
 		int i;
-		for (i=0;i<100;i++){
+		for (i=0;i<array_int.length;i++){
+		//for (i=0;i<100;i++){
 			array_int[i]=0;
 			System.out.println(array_int[i]);
 		}
@@ -56,21 +57,31 @@ public class EjemplosArrays {
 			f=doblearray[j].length;
 			for(int k=0;k<f;k++){
 				doblearray[j][k]=i;
+				System.out.println(doblearray[j][k]);
 				i++;
 			}
 		}
+		//For each (doble y anidado)
 		for (int[] fila: doblearray){
 			for (int celda: fila){
 				System.out.println(celda);
+				if (celda==7){
+					//se sale del for de dentro
+					// del for de celdas
+					break;
+				}
 			}
 		}
 		
 		int [][] da= new int[2][];
+		System.out.println("Matriz: "+da.length);
 		da[0]=new int[4];
+		System.out.println("Matriz: "+da[0].length);
 		for(i=0;i<4;i++){
 			da[0][i]=i;
 		}
 		da[1]=new int [5];
+		System.out.println("Matriz: "+da[1].length);
 		for(i=0;i<5;i++){
 			da[1][i]=i;
 		}
