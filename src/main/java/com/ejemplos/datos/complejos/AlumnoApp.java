@@ -15,11 +15,17 @@ public class AlumnoApp {
         System.out.println(monica.fechaNacimiento);
         monica.fechaNacimiento= new Date(102,0,12);
         System.out.println(monica.fechaNacimiento);
-        Alumno david = new Alumno("David", "Vaquero", new Date(78,5,30));
+        Alumno david = new Alumno(
+                "David",
+                "Vaquero",
+                new Date(78,5,30));
         System.out.println(david.nombre);
         System.out.println(david.apellidos);
         System.out.println(david.fechaNacimiento);
         System.out.println(david);
         // igual a System.out.println(david.toString());
+        Alumno pepe = new Alumno();
+
+
     }
 }
