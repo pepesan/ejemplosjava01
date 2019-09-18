@@ -14,5 +14,11 @@ public class PerroApp {
         System.out.println(fluky.getRaza());
         fluky.setNombre("Fluky");
         System.out.println(fluky);
+        if (otto.equals(fluky)){
+            System.out.println("Son iguales");
+            // no te lo crres ni tu!!
+        }else {
+            System.out.println("¿Cómo van a ser iguales, tu flipas?");
+        }
     }
 }

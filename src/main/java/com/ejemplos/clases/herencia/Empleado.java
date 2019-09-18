@@ -17,6 +17,8 @@ public class Empleado extends Persona {
             Integer edad,
             String puesto,
             Float sueldo) {
+        //super(nombre);
+        //this.setEdad(edad);
         super(nombre, edad);
         this.puesto = puesto;
         this.sueldo = sueldo;

@@ -13,8 +13,14 @@ public class Persona {
         this.edad = 0;
         this.nombre = nombre;
     }
+    public Persona (Integer edad){
+        this.nombre="";
+        this.edad= edad;
+    }
 
-    public Persona(String nombre,Integer edad) {
+    public Persona(
+            String nombre,
+            Integer edad) {
         this.edad = edad;
         this.nombre = nombre;
     }
