@@ -15,7 +15,10 @@ public class AppPersonas {
         p = (Persona) e;
         System.out.println(p);
         System.out.println(p.getEdad());
-
+        p = new Empleado();
+        System.out.println(p.getEdad());
+        // Error de compilación
+        // j= new Persona();
 
         if (j instanceof Jefecillo)
             System.out.println("Es un fejecillo");

@@ -22,7 +22,7 @@ public class Excepciones {
 				valor /= x;
 			}
 
-		    }
+		}
 		catch( ArithmeticException e ) {
 		    System.out.println( "Matemáticas locas!" );
 			System.out.println(e.getLocalizedMessage());
