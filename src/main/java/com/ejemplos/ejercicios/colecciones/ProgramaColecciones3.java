@@ -33,7 +33,7 @@ public class ProgramaColecciones3 {
         piezasOrdenadas.add(p3);
         piezasOrdenadas.add(p4);
         System.out.println(piezasOrdenadas);
-        Map cliente = new HashMap<String, String>();
+        Map<String, String> cliente = new HashMap<String, String>();
         cliente.put("nombre","pepe");
         cliente.put("direccion", "mi calle");
         cliente.put("tlf","677665+234");

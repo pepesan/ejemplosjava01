@@ -11,16 +11,21 @@ public class Excepciones {
 		int valor;
 		int x;
 		try {
-			int j= 1;
+			int j= 0;
 			if(j>0){
 				ChungaException e = new ChungaException();
 				throw e;
 			}
+			System.out.println("fuera del IF");
 			Integer i=null;
-			i.toString();
-		    for( x=0,valor = 100; x < 100; x ++ ){
+			// i.toString();
+		    /*
+			for( x=0,valor = 100; x < 100; x ++ ){
 				valor /= x;
 			}
+			*/
+		    Exception e = new Exception();
+		    throw e;
 
 		}
 		catch( ArithmeticException e ) {
@@ -48,28 +53,25 @@ public class Excepciones {
 		    System.out.println( "Se ha producido un error" );
 			e.printStackTrace();
 			System.out.println(e.getLocalizedMessage());
-		    }
-			int temp=30;
-			int dormir=7;
-		    try {
-		        if( temp > 40 )
-		            throw( new demasiadoCalor() );
-		        if( dormir < 8 )
-		            throw( new demasiadoCansado() );
-		    } catch( Limites lim ) {
-		        if( lim instanceof demasiadoCalor )
-		            {
-		            System.out.println( "Capturada excesivo calor!" );
+		}
+		int temp=30;
+		int dormir=7;
+		try {
+			if( temp > 40 )
+		    	throw( new demasiadoCalor() );
+		if( dormir < 8 )
+			throw( new demasiadoCansado() );
+		} catch( Limites lim ) {
+			if( lim instanceof demasiadoCalor ){
+				System.out.println( "Capturada excesivo calor!" );
 		            return;
-		            }
-		        if( lim instanceof demasiadoCansado ) {
-		            System.out.println( "Capturada excesivo cansancio!" );
-		            return;
-		            }
-		    } finally{
-		        System.out.println( "En la clausula finally" );
-		    }
-
-		    
+			}
+			if( lim instanceof demasiadoCansado ) {
+				System.out.println( "Capturada excesivo cansancio!" );
+				return;
+			}
+		} finally{
+			System.out.println( "En la clausula finally" );
+		}
 	}
 }
