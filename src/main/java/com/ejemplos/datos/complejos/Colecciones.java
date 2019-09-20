@@ -4,6 +4,26 @@ import java.util.*;
 import java.util.stream.Stream;
 
 public class Colecciones {
+	private static class CalleComp implements Comparator<Direccion>{
+
+		@Override
+		public int compare(Direccion e1, Direccion e2) {
+			return e1.getCalle().compareTo(e2.getCalle());
+		}
+	}
+
+	private static class NumeroComp implements Comparator<Direccion>{
+
+		@Override
+		public int compare(Direccion e1, Direccion e2) {
+			if(Integer.parseInt(e1.getNumero())
+					> Integer.parseInt(e2.getNumero())){
+				return 1;
+			} else {
+				return -1;
+			}
+		}
+	}
 
 	/**
 	 * @param listado
@@ -24,13 +44,24 @@ public class Colecciones {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+
+		List <Object> listadoDeObjetos= new ArrayList<>();
+		listadoDeObjetos.add(2);
+		listadoDeObjetos.add("Hola Mundo");
+		listadoDeObjetos.add(new Direccion());
+		listadoDeObjetos.add(new Cliente());
+
 		List<String> listado=new LinkedList<String>();
 		listado.add("Uno");
 		listado.add("Dos");
 		listado.add("Tres");
+		System.out.println(listado.get(0).length());;
 		imprimeListado(listado);
-		listado.remove(2);
+		listado.remove(1);
 		imprimeListado(listado);
+		System.out.println(listado.size());
+		listado.add("Dos");
+		listado.add("Dos");
 		listado.remove("Dos");
 		imprimeListado(listado);
 		listado.set(0,"modificado");
@@ -62,10 +93,11 @@ public class Colecciones {
 		// Inverso
 		Collections.sort(listado, Collections.reverseOrder());
 
-		List<Direccion> listadoDirecciones = new LinkedList<>();
+		List<Direccion> listadoDirecciones = new ArrayList<>();
 		Direccion d1 = new Direccion();
 		d1.setCalle("Salamanca");
 		d1.setNumero("12");
+		listadoDirecciones.add(d1);
 		Direccion d2 = new Direccion();
 		d2.setCalle("Madrid");
 		d2.setNumero("12");
@@ -101,7 +133,9 @@ public class Colecciones {
 				new Direccion("calle2","14"),
 				new Direccion("calle1","12")
 		};
-		Set<Direccion> conjuntoDirecciones=new TreeSet<Direccion>(Comparator.comparing(Direccion::getCalle));
+		Set<Direccion> conjuntoDirecciones=
+		// 		new TreeSet<Direccion>(Comparator.comparing(Direccion::getCalle));
+				new TreeSet<Direccion>(new CalleComp());
 		conjuntoDirecciones.add(direcciones[0]);
 		conjuntoDirecciones.add(direcciones[1]);
 		conjuntoDirecciones.add(direcciones[2]);
@@ -135,6 +169,8 @@ public class Colecciones {
 		mapa=new HashMap<String,String>();
 		mapa.put("nombre","Pepe");
 		mapa.put("dni","789654A");
+		System.out.println(mapa.keySet());
+		System.out.println(mapa.values());
 		System.out.println(mapa.get("nombre"));
 		mapa.remove("Pepe");
 
@@ -150,7 +186,7 @@ public class Colecciones {
 
 		//Map m1 = new HashMap<Object,Object>();
 		Map m1 = new HashMap();
-		m1.put("Zara", "8");
+		m1.put("Zara", new Cliente());
 		m1.put("Mahnaz", "31");
 		m1.put("Ayan", "12");
 		m1.put("Daisy", "14");
@@ -247,7 +283,7 @@ public class Colecciones {
 		listadoclientes.add(pepe);
 		Cliente clientePepe=listadoDeListados.get(0).get(0);
 		*/
-
+		/*
 		// Java 9
 		// Creación de colecciones más sencilla
 		List<Integer> list = List.of(1, 2, 3);
@@ -258,7 +294,7 @@ public class Colecciones {
 		List<Integer> listCopyOf = List.copyOf(list);
 		Set<String> setCopyOf = Set.copyOf(set4);
 		Map<String, String> mapCopyOf = Map.copyOf(map);
-
+		*/
 
 }
 

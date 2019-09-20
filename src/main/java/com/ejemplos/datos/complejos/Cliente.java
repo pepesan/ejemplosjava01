@@ -2,7 +2,9 @@ package com.ejemplos.datos.complejos;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 /**
  * Created by pepesan on 29/04/2016.
@@ -11,19 +13,19 @@ public class Cliente implements Serializable{
 
     private String nombre;
     private String dni;
-    private List<Direccion> direcciones;
+    private Set<Direccion> direcciones;
 
     public Cliente() {
         this.nombre = "";
         this.dni = "";
-        this.direcciones=new ArrayList<Direccion>();
+        this.direcciones=new HashSet<>();
     }
     public Cliente(String nombre, String dni) {
         this.nombre = nombre;
         this.dni = dni;
-        this.direcciones=new ArrayList<Direccion>();
+        this.direcciones=new HashSet<>();
     }
-    public Cliente(String nombre, String dni, List<Direccion> direcciones) {
+    public Cliente(String nombre, String dni, Set<Direccion> direcciones) {
         this.nombre = nombre;
         this.dni = dni;
         this.direcciones=direcciones;
@@ -45,11 +47,11 @@ public class Cliente implements Serializable{
         this.dni = dni;
     }
 
-    public List<Direccion> getDirecciones() {
+    public Set<Direccion> getDirecciones() {
         return direcciones;
     }
 
-    public void setDirecciones(List<Direccion> direcciones) {
+    public void setDirecciones(Set<Direccion> direcciones) {
         this.direcciones = direcciones;
     }
 
@@ -72,5 +74,14 @@ public class Cliente implements Serializable{
         result = 31 * result + (getDni() != null ? getDni().hashCode() : 0);
         result = 31 * result + (getDirecciones() != null ? getDirecciones().hashCode() : 0);
         return result;
+    }
+
+    @Override
+    public String toString() {
+        return "Cliente{" +
+                "nombre='" + nombre + '\'' +
+                ", dni='" + dni + '\'' +
+                ", direcciones=" + direcciones +
+                '}';
     }
 }
