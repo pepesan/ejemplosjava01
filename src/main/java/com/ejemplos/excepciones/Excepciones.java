@@ -8,6 +8,22 @@ class demasiadoCansado extends Limites {}
    
 public class Excepciones {
 	public static void main(String[] args) {
+		int a = 4;
+		int b = 0;
+
+
+		try {
+			int c = a/b;
+		}catch (Exception e){
+			System.out.println("Primera excepción");
+			System.out.println(e.getLocalizedMessage());
+			if (e.getLocalizedMessage().equals("/ by zero")){
+				System.out.println("por favor , introduzca un número en b que no sea cero");
+			}
+		}
+
+
+
 		int valor;
 		int x;
 		try {
