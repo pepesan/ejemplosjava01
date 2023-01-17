@@ -9,6 +9,9 @@ public class EstructurasDeControl {
 		// TODO Auto-generated method stub
 		int i=0;
 		int j=1;
+		if (i<j){
+			System.out.println("i es menor que j");
+		}
 		if(i<j){
 			System.out.println("i es menor que j");
 		}else{
@@ -77,7 +80,8 @@ public class EstructurasDeControl {
 		System.out.println("k & p vale "+(k&p));
 		
 		//SWITCH
-		i=1;
+		System.out.println("Switches");
+		i=3;
 		//solo se puede usar con int's
 		switch(i){
 			case 1:
@@ -110,9 +114,11 @@ public class EstructurasDeControl {
 				break;
 		}
 		// Java 12
-		/*
+
 		switch (cadena){
-			case "Valor2","Valor" -> {System.out.println("vale 'Valor'");}
+			case "Valor2","Valor" -> {
+				System.out.println("vale 'Valor'");
+			}
 			case "Sin Valor" -> {System.out.println("Sin Valor");}
 			default-> {System.out.println("Otro Valor");}
 		}
@@ -121,9 +127,10 @@ public class EstructurasDeControl {
             case "Sin Valor" -> "Sin Valor";
             default-> "Otro Valor";
         };
+		System.out.println(resultado);
+		System.out.println("fin de Switch");
 
 
-		 */
 
 		// for de tipo simple
 		for (i=0;i<3;i++){
@@ -162,6 +169,13 @@ public class EstructurasDeControl {
 			System.out.println(i);
 			i++;
 		}while(i<4);
+
+		for (i=0; i<4;i++){
+			if (i==2){
+				break; // sale cuando i == 2
+			}
+			System.out.println("For para break: " + i);
+		}
 		//uso de etiquetas en sentencias
 		uno: for(i=0;i<10;i++ )
         {

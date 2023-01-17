@@ -38,6 +38,12 @@ public class Variables {
 		// variables con tipo inferido
 		var variableConTipo = "Variable sin Tipo Explicito";
 		System.out.println(variableConTipo);
+		var caracter = 'A';
+		System.out.println(caracter);
+		// No es capaz de inferir el tipo, no compila
+		//var objetoVacio = null;
+		String cadena = null;
+		cadena = "valor";
 
 	}
 
