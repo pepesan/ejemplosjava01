@@ -192,6 +192,21 @@ public class EjemplosArrays {
 		for (i=0;i<10;i++){
 			System.out.print(dos[i]+" ");
 		} //Sale 1120000000
+		// Manejo de excepciones de Índice de Arrays
+		System.out.println();
+		nums = new int[]{1,2,3};
+		var indice = 3;
+		if (indice<nums.length -1){
+			System.out.println(nums[3]);
+		}else{
+			System.out.println("ups ha petado algo ");
+		}
+		try {
+			System.out.println(nums[3]);
+		}catch (Exception e){
+			System.out.println("ups ha petado algo ");
+		}
+
 	}
 
 }
