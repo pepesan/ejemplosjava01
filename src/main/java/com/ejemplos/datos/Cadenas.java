@@ -1,5 +1,6 @@
 package com.ejemplos.datos;
 
+import javax.sound.midi.Soundbank;
 import java.io.UnsupportedEncodingException;
 
 public class Cadenas {
@@ -8,16 +9,25 @@ public class Cadenas {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		String texto1 = "¡Prueba de texto!";
+		// Declaración del objeto
+		String texto1 = null;
 		System.out.println(texto1);
+		// Inicialización del objeto
+		texto1 = "¡Prueba de texto!";
+		System.out.println(texto1);
+		// Inicialización en base al constructor de la Clase
 		texto1 = new String ("¡Prueba de texto!");
-		char [] mi_palabra = {'P','r','u','e','b','a'};
-		texto1 = new String(mi_palabra);
 		System.out.println(texto1);
+		char [] miPalabra = {'P','r','u','e','b','a'};
+		texto1 = new String(miPalabra);
+		System.out.println(texto1);
+		System.out.println(texto1.length());
 		System.out.println("Hola Mundo!".length());
+		System.out.println("Referencias");
 		String texto2; // = null;
 		texto2=texto1;
+		System.out.println(texto1);
+		System.out.println(texto2);
 		if(texto1== texto2){
 			System.out.println("Ambas referencias son iguales");
 		}
@@ -49,6 +59,14 @@ public class Cadenas {
 		String s="Hola Mundo";
 		System.out.println(s);
 		System.out.println(s.length());
+		s+="Adios Mundo";
+		// La referencia s ha perdido el enlace al primer objeto
+		// La referencia s ahora apunta a otro objeto
+		// El recolector de basura eventualmnente liberará la memoria del primer objeto
+		System.out.println(s);
+		System.out.println(s.length());
+		// String Buffer
+		System.out.println("StringBuffer");
 		StringBuffer s2=new StringBuffer("Hola Mundo");
 		System.out.println(s2);
 		System.out.println(s2.length());
@@ -76,8 +94,8 @@ public class Cadenas {
 		System.out.println(s.toLowerCase());
 		String dias="Lunes,Martes,Miércoles,Jueves," +
 				"Viernes,Sábado,Domingo";
-		String [] adias=dias.split(",");
-		for(String dia:adias){
+		String [] arrayDias=dias.split(",");
+		for(String dia:arrayDias){
 			System.out.println(dia);
 		}
 	}
