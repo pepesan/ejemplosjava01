@@ -9,5 +9,10 @@ public class AppCoche {
         System.out.println(auris.getMatricula());
         auris.setNumRuedas(5);
         System.out.println(auris.getNumRuedas());
+        System.out.println(auris);
+        Coche auris2 = new Coche("SA1234M", 5);
+        if (auris.equals(auris2)) {
+            System.out.println("Ambos coches son iguales");
+        }
     }
 }
