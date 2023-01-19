@@ -18,6 +18,9 @@ public class SubClase extends SuperClase {
 		// TODO Auto-generated method stub
 		SubClase clasePeque= new SubClase();
 		clasePeque.haceAlgo();
+		System.out.println(clasePeque.i);
+		System.out.println(clasePeque.j);
+		System.out.println(clasePeque.getK());
 	}
 
 }

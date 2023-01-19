@@ -8,6 +8,7 @@ public class SuperClase {
 	private int k;
 	
 	SuperClase(){
+		this.i=0;
 		this.j=0;
 		this.k=0;
 	}
@@ -58,7 +59,6 @@ public class SuperClase {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		SuperClase c= new SuperClase();
 		c.i=12;
 		System.out.println(c.i);
