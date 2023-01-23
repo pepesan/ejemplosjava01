@@ -2,24 +2,14 @@ package com.ejemplos.clases.abstractas;
 
 public class AbstractaImplementa extends Abstracta{
 
-	/**
-	 * @param args
-	 */
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
-	}
 
 	@Override
 	public void haceAlgo() {
-		// TODO Auto-generated method stub
-		
+		System.out.println("Algo");
 	}
 
 	@Override
 	public void haceOtraCosa() {
-		// TODO Auto-generated method stub
-		
+		System.out.println("Otra Cosa");
 	}
-
 }

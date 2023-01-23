@@ -20,5 +20,6 @@ public class CasasApp {
         System.out.println(chaletDeLujo);
         chaletDeLujo = new ChaletDeLujo("Madrid", 120.0F, 2, 5);
         System.out.println(chaletDeLujo);
+        casa = (Casa) chaletDeLujo;
     }
 }

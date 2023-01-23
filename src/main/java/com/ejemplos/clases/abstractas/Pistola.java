@@ -57,6 +57,10 @@ public class Pistola implements Serializable{
 		this.fechafac = fechafac;
 	}
 
+	public long getSerialVersionUID(){
+		return serialVersionUID;
+	}
+
 	@Override
 	public String toString() {
 		return "Pistola [modelo=" + modelo + ", marca=" + marca + ", fechafac="
