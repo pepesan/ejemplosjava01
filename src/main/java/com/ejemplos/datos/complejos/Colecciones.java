@@ -356,6 +356,31 @@ public class Colecciones {
 		Set<String> setCopyOf = Set.copyOf(set4);
 		Map<String, String> mapCopyOf = Map.copyOf(map);
 
+		System.out.println( "Cambios de colecciones" );
+		// nuevo método of
+		Set<Integer> integers = Set.of(2, 6, 7, 10);
+		System.out.println(integers);
+		// no se puede modificar porque es inmutable
+		//integers.add(12);
+		//System.out.println(integers);
+		// si inicializamos el objeto con los valores
+		// que nos devuelve el of podría ser mutable
+		List<Integer> integersList = new ArrayList<>(List.of(2, 6, 7, 10));
+		System.out.println(integersList);
+		integersList.add(12);
+		System.out.println(integersList);
+
+		// nuevo método toArray
+		List<String> list2 = List.of("apple", "banana", "orange");
+		String[] array = list2.toArray(String[]::new);
+		System.out.println(Arrays.toString(array));
+		// nuevo método copyOf
+		List<Integer> list3 = new ArrayList<>();
+		list3.add(1);
+		list3.add(2);
+		List<Integer> integers2 = List.copyOf(list3);
+		System.out.println(integers2);
+
 	}
 
 }
