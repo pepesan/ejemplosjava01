@@ -1,47 +1,75 @@
 package com.ejemplos.ficheros;
 
 import java.io.*;
+import java.net.URI;
+import java.nio.charset.Charset;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.Scanner;
 
 public class Ficheros {
+	public static void lanzaCodigoJava11() throws IOException {
+		System.out.println( "Ejemplos de NIO  en Java 11!!" );
+
+			// escritura
+			Path path = Files.writeString(
+					Files.createTempFile("test", ".txt"), "test file content");
+			System.out.println(path);
+			String s = Files.readString(path);
+			System.out.println(s);
+			// lectura
+			Charset latinCharset = Charset.forName("ISO-8859-3");
+			path = Files.writeString(
+					Files.createTempFile("test", ".txt"), "test filum", latinCharset);
+			System.out.println(path);
+			s = Files.readString(path, latinCharset);
+			System.out.println(s);
+			// presencia
+			path = Path.of("C:", "temp", "test.txt");
+			System.out.println(path);
+			boolean exists = Files.exists(path);
+			System.out.println(exists);
+			// presencia por URL
+			URI uri = URI.create("file:///C:/temp/test.txt");
+			System.out.println(uri);
+			path = Path.of(uri);
+			System.out.println(path);
+			System.out.println(Files.exists(path));
+
+	}
 
 	/**
 	 * @param args
 	 */
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		 File archivo = null;
-	      FileReader fr = null;
-	      BufferedReader br = null;
+	public static void main(String[] args){
+		File archivo = null;
+	    FileReader fr = null;
+	    BufferedReader br = null;
 		try{
 			File file = new File("./md5sum.txt");
 			if(file.createNewFile()) {
 				System.out.println("Success!");
-			}
-			else{
+			}else{
 				System.out.println
 						("Error, file already exists.");
 			}
-		}
-		catch(IOException ioe) {
+		}catch(IOException ioe) {
 			ioe.printStackTrace();
 			System.out.println(ioe.getMessage());
 		}
 		BufferedWriter out=null;
 		try {
-			out = new
-					BufferedWriter(new FileWriter("./md5sum.txt"));
+			FileWriter fileWriter = new FileWriter("./md5sum.txt");
+			out = new BufferedWriter(fileWriter);
 			out.write("aString");
 			out.close();
 			System.out.println
 					("File created successfully");
-		}
-		catch (IOException e) {
+		}catch (IOException e) {
 			System.out.println("Fallo al escribir el fichero");
 			System.out.println(e.getMessage());
-		}
-		finally {
-
+		}finally {
+			System.out.println("Ejecutado en ambos casos try completo o catch");
 		}
 		  try {
 	         // Apertura del fichero y creacion de BufferedReader para poder
@@ -115,6 +143,17 @@ public class Ficheros {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		try {
+			lanzaCodigoJava11();
+		}catch(IOException ioe) {
+			ioe.printStackTrace();
+			System.out.println(ioe.getMessage());
+		}catch (Exception e){
+			System.out.println(e.getMessage());
+		}
+
+		System.out.println("Fin de ejecución");
+
 	}
 
 }

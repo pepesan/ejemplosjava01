@@ -21,7 +21,7 @@ public class Implementa implements Interfaz {
 		// TODO Auto-generated method stub
 		Implementa i= new Implementa();
 		int j;
-		Integer k= new Integer(5);
+		Integer k= 5;
 		j=i.function2(k);
 		System.out.println(j);
 	}
