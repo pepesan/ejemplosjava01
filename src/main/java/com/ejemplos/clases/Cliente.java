@@ -1,6 +1,6 @@
 package com.ejemplos.clases;
 
-public class Cliente {
+public class Cliente{
     public String nombre;
     private String cifnif;
 

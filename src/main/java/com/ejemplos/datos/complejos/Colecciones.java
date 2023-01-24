@@ -29,28 +29,35 @@ public class Colecciones {
 	 * @param listado
 	 */
 	public static void imprimeListado(List<String> listado){
+		/*
 		for(int i=0;i<listado.size();i++){
 			String cadena=listado.get(i);
 			System.out.println(cadena);
 		}
-		/*
-		For each de listados
+		 */
+
+		// For each de listados
 		for (String cadena: listado) {
 			System.out.println(cadena);
 		}
 
-		 */
 	}
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-
+		// Objeto que es un listado de objetos
 		List <Object> listadoDeObjetos= new ArrayList<>();
+		// Añade un elemento al listado
 		listadoDeObjetos.add(2);
 		listadoDeObjetos.add("Hola Mundo");
 		listadoDeObjetos.add(new Direccion());
 		listadoDeObjetos.add(new Cliente());
-
+		// imprime el primer elemento del listado
+		System.out.println(listadoDeObjetos.get(0));
+		System.out.println(listadoDeObjetos.get(3));
+		listadoDeObjetos.remove(2);
+		System.out.println(listadoDeObjetos.size());
+		// Inicializamos otro objeto pero con una implementación diferente
 		List<String> listado=new LinkedList<String>();
 		listado.add("Uno");
 		listado.add("Dos");
@@ -60,10 +67,14 @@ public class Colecciones {
 		listado.remove(1);
 		imprimeListado(listado);
 		System.out.println(listado.size());
+		System.out.println("metiendo dos valores iguales");
 		listado.add("Dos");
 		listado.add("Dos");
+		// borra el primer objeto que sea igual al pasado
 		listado.remove("Dos");
+		System.out.println("borrando un valor");
 		imprimeListado(listado);
+		System.out.println("Listados los valores del array");
 		listado.set(0,"modificado");
 		imprimeListado(listado);
 		listado.remove(0);
@@ -84,10 +95,16 @@ public class Colecciones {
 		}
 
 		// Ordenado
-
+		System.out.println("Ordenacion");
+		System.out.println("Contenido Original");
+		imprimeListado(listado);
 		listado.sort( Comparator.comparing( String::toString ) );
+		System.out.println("Contenido Ordenado con toString");
+		imprimeListado(listado);
 		// Inverso
 		listado.sort( Comparator.comparing( String::valueOf ).reversed() );
+		System.out.println("Contenido Ordenado con valueOf.reversed()");
+		imprimeListado(listado);
 		// Ordenado
 		Collections.sort(listado);
 		// Inverso
@@ -98,14 +115,31 @@ public class Colecciones {
 		d1.setCalle("Salamanca");
 		d1.setNumero("12");
 		listadoDirecciones.add(d1);
-		Direccion d2 = new Direccion();
-		d2.setCalle("Madrid");
-		d2.setNumero("12");
-		listadoDirecciones.add(d2);
+		d1 = new Direccion();
+		d1.setCalle("Madrid");
+		d1.setNumero("12");
+		listadoDirecciones.add(d1);
+		listadoDirecciones.add(new Direccion("19","Salamanca"));
 		listadoDirecciones.sort(Comparator.comparing(Direccion::toString));
+		System.out.println("Imprimiendo listado de direcciones");
 		for (Direccion d :listadoDirecciones) {
 			System.out.println(d);
 		}
+
+		listadoDirecciones = new ArrayList<>();
+		// metemos un objeto en el listado
+		listadoDirecciones.add(new Direccion());
+		System.out.println("imprimimos el objeto insertado por pantalla");
+		// Me devuelve la referencia al objeto que está dentro de listado
+		Direccion primeraDireccion = listadoDirecciones.get(0);
+		System.out.println(primeraDireccion);
+		// si modifico el objeto referenciado, modifico el listado
+		primeraDireccion.setCalle("Salamanca");
+		primeraDireccion.setNumero("19");
+		System.out.println("Imprimiendo valores directos o indirectos de un objeto");
+		System.out.println(primeraDireccion);
+		System.out.println(listadoDirecciones.get(0));
+
 
 
 		int count[] = {34, 22,10,60,30,22};
@@ -139,6 +173,11 @@ public class Colecciones {
 		conjuntoDirecciones.add(direcciones[0]);
 		conjuntoDirecciones.add(direcciones[1]);
 		conjuntoDirecciones.add(direcciones[2]);
+		System.out.println("primera impresión set");
+		for(Direccion d:conjuntoDirecciones){
+			System.out.println(d);
+		}
+		System.out.println("segunda impresión set");
 		for(Direccion d:conjuntoDirecciones){
 			System.out.println(d);
 		}
@@ -158,31 +197,52 @@ public class Colecciones {
 			Object element = it.next();
 			System.out.println(element.toString());
 		}
+		System.out.println("Ejemplos de mapas");
 		Map mapa=new HashMap<Integer,String>();
 		mapa.put(0,"Valor14");
 		mapa.put(1,"Valor16");
 		mapa.put(2,"Valor11");
 		mapa.put(3,"Valor10");
 		System.out.println(mapa.get(0));
+		mapa.put(0,"Otro Valor");
+		System.out.println(mapa.get(0));
 		mapa.remove(0);
 		System.out.println(mapa);
+		// Mapa de asociación de Strings
 		mapa=new HashMap<String,String>();
 		mapa.put("nombre","Pepe");
 		mapa.put("dni","789654A");
 		System.out.println(mapa.keySet());
 		System.out.println(mapa.values());
 		System.out.println(mapa.get("nombre"));
-		mapa.remove("Pepe");
-
+		// borramos el elemento de una determinada clave
+		mapa.remove("nombre");
+		System.out.println(mapa);
+		System.out.println(mapa.get("nombre"));
+		try {
+			mapa.get("nombre").toString();
+		}catch (NullPointerException e){
+			System.out.println(e.getMessage());
+		}
+		// Mapa de String /Clase personalizada
 		mapa=new HashMap<String,Cliente>();
-		mapa.put("Cod1234",new Cliente());
+		mapa.put("Cod1234",new Cliente("Lourdes", "37009876W"));
 		Cliente client=(Cliente) mapa.get("Cod1234");
+		System.out.println(client);
 
-
-
+		// ¿Qué es esto?
 		mapa=new HashMap<String,HashMap<String,Cliente>>();
+		// Un mashmap que dentro como valor tiene otro hashmap
+		// Inception?
+		HashMap miniHashMap = new HashMap<String,Cliente> ();
+		miniHashMap.put("Direccion", new Cliente("David", "07988765W"));
+		mapa.put("Contacto", miniHashMap);
+		miniHashMap = new HashMap<String,Cliente> ();
+		miniHashMap.put("Direccion", new Cliente("Marta", "07988785W"));
+		mapa.put("Fiscal", miniHashMap);
+		System.out.println("HashMap de HashMaps: " + mapa);
 
-
+		mapa = new HashMap<Integer, List<String>>();
 
 		//Map m1 = new HashMap<Object,Object>();
 		Map m1 = new HashMap();
