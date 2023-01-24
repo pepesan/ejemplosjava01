@@ -258,11 +258,11 @@ public class Colecciones {
 		// Create a hash map
 		TreeMap tm = new TreeMap();
 		// Put elements to the map
-		tm.put("Zara", new Double(3434.34));
-		tm.put("Mahnaz", new Double(123.22));
-		tm.put("Ayan", new Double(1378.00));
-		tm.put("Daisy", new Double(99.22));
-		tm.put("Qadir", new Double(-19.08));
+		tm.put("Zara", 3434);
+		tm.put("Mahnaz", 123);
+		tm.put("Ayan", 1378);
+		tm.put("Daisy", 99);
+		tm.put("Qadir", -19);
 
 		// Get a set of the entries
 		Set set3 = tm.entrySet();
@@ -277,7 +277,7 @@ public class Colecciones {
 		System.out.println();
 		// Deposit 1000 into Zara's account
 		double balance = ((Double)tm.get("Zara")).doubleValue();
-		tm.put("Zara", new Double(balance + 1000));
+		tm.put("Zara", balance + 1000);
 		System.out.println("Zara's new balance: " +
 				tm.get("Zara"));
 
@@ -296,7 +296,7 @@ public class Colecciones {
 		mimapa.put("Empleados",valor);
 		System.out.println(mimapa);
 
-		/*
+
 
 		//construir el listado
 		List<Cliente> clientes = new ArrayList<Cliente>();
@@ -309,12 +309,13 @@ public class Colecciones {
 		Direccion dir=new Direccion();
 		dir.setCalle("Arribarriaga");
 		dir.setNumero("14");
+
 		//construir el objeto del listado
-		List<Direccion> direcciones=new ArrayList<Direccion>();
+		List<Direccion> direcciones2=new ArrayList<Direccion>();
 		//incluir la dirección en el listado de direcciones
-		direcciones.add(dir);
+		direcciones2.add(dir);
 		//Asociar el objeto de las direcciones al objeto cliente
-		pepe.setDirecciones(direcciones);
+		pepe.setDirecciones(direcciones2);
 		//introducir en el listado el objeto cliente
 		clientes.add(pepe);
 		pepe.setNombre("Jose");
@@ -342,8 +343,7 @@ public class Colecciones {
 		listadoDeListados.add(listadoclientes);
 		listadoclientes.add(pepe);
 		Cliente clientePepe=listadoDeListados.get(0).get(0);
-		*/
-		/*
+
 		// Java 9
 		// Creación de colecciones más sencilla
 		List<Integer> list = List.of(1, 2, 3);
@@ -354,8 +354,7 @@ public class Colecciones {
 		List<Integer> listCopyOf = List.copyOf(list);
 		Set<String> setCopyOf = Set.copyOf(set4);
 		Map<String, String> mapCopyOf = Map.copyOf(map);
-		*/
 
-}
+	}
 
 }
