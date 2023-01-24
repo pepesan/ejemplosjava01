@@ -276,7 +276,8 @@ public class Colecciones {
 		}
 		System.out.println();
 		// Deposit 1000 into Zara's account
-		double balance = ((Double)tm.get("Zara")).doubleValue();
+		int numero = (int)tm.get("Zara");
+		Double balance = Double.valueOf(numero);
 		tm.put("Zara", balance + 1000);
 		System.out.println("Zara's new balance: " +
 				tm.get("Zara"));
