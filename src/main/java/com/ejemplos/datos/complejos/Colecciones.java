@@ -141,7 +141,12 @@ public class Colecciones {
 		System.out.println(listadoDirecciones.get(0));
 
 
-
+		Set<Integer> conjuntoNumeros = new HashSet<>();
+		conjuntoNumeros.add(1);
+		conjuntoNumeros.add(1);
+		conjuntoNumeros.add(1);
+		conjuntoNumeros.add(1);
+		System.out.println("HashSet: " + conjuntoNumeros);
 		int count[] = {34, 22,10,60,30,22};
 		Set<Integer> set = new HashSet<Integer>();
 		try{
