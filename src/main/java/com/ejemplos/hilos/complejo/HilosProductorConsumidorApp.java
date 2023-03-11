@@ -1,13 +1,12 @@
-package com.ejemplos.hilos;
+package com.ejemplos.hilos.complejo;
 
 
-public class HilosProductorConsumidorTest {
+public class HilosProductorConsumidorApp {
 
 	/**
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		HilosContenedor c = new HilosContenedor ();
 	    HilosProductor produce = new HilosProductor (c);
 	    HilosConsumidor consume = new HilosConsumidor (c);

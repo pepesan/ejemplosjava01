@@ -1,5 +1,4 @@
-package com.ejemplos.hilos;
-
+package com.ejemplos.hilos.complejo;
 
 
 public class HilosProductor extends Thread {
@@ -11,7 +10,7 @@ public class HilosProductor extends Thread {
 
     public void run() {
         for (int i = 0; i < 10; i++) {
-            contenedor.put(new Integer (i));
+            contenedor.put(Integer.valueOf(i));
             System.out.println("Productor. put: " + i);
             try {
                 sleep((int)(Math.random() * 100));
