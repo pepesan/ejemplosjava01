@@ -13,7 +13,7 @@ public class HilosProductor extends Thread {
             contenedor.put(Integer.valueOf(i));
             System.out.println("Productor. put: " + i);
             try {
-                sleep((int)(Math.random() * 100));
+                sleep((int)(Math.random() * 1000));
             } catch (InterruptedException e) { }
         }
     }
