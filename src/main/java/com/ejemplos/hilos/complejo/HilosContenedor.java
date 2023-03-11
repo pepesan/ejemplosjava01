@@ -1,4 +1,4 @@
-package com.ejemplos.hilos;
+package com.ejemplos.hilos.complejo;
 
 
 public class HilosContenedor {

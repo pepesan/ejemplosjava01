@@ -16,9 +16,4 @@ public class Hilos extends Thread {
         }
         System.out.println("Termina thread " + getName());
     }
-    public static void main (String [] args) {
-        new Hilos("Pepe").start();
-        new Hilos("Juan").start();
-        System.out.println("Termina thread main");
-    }
 }
