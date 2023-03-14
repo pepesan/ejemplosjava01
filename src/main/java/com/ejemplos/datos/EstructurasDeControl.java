@@ -179,6 +179,22 @@ public class EstructurasDeControl {
 			}
 			System.out.println("For para break: " + i);
 		}
+
+		for (i=0; i<4;i++){
+			if (i == 1){
+				continue; // saltar al final del bucle e iniciar una nueva vuelta
+			}
+			if (i==2){
+				break; // sale cuando i == 2
+			}
+			System.out.println("For para break: " + i);
+		}
+
+		for (k = 0; k<4; k+=2){
+			System.out.println(k);
+		}
+
+
 		//uso de etiquetas en sentencias
 		uno: for(i=0;i<10;i++ )
         {
