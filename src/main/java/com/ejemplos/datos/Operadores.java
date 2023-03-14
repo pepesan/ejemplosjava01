@@ -74,6 +74,13 @@ public class Operadores {
 			}
 			System.out.println(i);
 		}
+
+		// Java 14
+		// manejo de instanceof
+		Object o = new String("Hola!!");
+		if (o instanceof String s1 && s1.length() > 5) {
+			System.out.println("cadena: "+ s1);
+		}
 		
 	}
 

@@ -1,5 +1,8 @@
 package com.ejemplos.datos;
 
+import java.time.LocalDate;
+import java.time.Month;
+
 public class EstructurasDeControl {
 
 	/**
@@ -192,6 +195,49 @@ public class EstructurasDeControl {
 	           }
 			}
        }
+
+		// Java 12
+
+		Month mes = LocalDate.now().getMonth();
+		switch (mes) {
+			case JANUARY, FEBRUARY, MARCH -> System.out.println("First Quarter");//no break needed
+			case APRIL, MAY, JUNE -> System.out.println("Second Quarter");
+			case JULY, AUGUST, SEPTEMBER -> System.out.println("Third Quarter");
+			case OCTOBER, NOVEMBER, DECEMBER -> System.out.println("Forth Quarter");
+			default -> System.out.println("Unknown Quarter");
+		}
+		// Switch yield
+		String result = switch (mes) {
+			case JANUARY,
+					FEBRUARY,
+					MARCH -> {
+				//multiple statements can be used here
+				yield "First Quarter";
+			}
+			case APRIL, MAY, JUNE -> {
+				//multiple statements can be used here
+				yield "Second Quarter";
+			}
+			case JULY, AUGUST, SEPTEMBER -> "Third Quarter";
+			case OCTOBER, NOVEMBER, DECEMBER -> {
+				//multiple statements can be used here
+				yield "Forth Quarter";
+			}
+			default -> "Unknown Quarter";
+		};
+		System.out.println(result);
+
+		// expresión sobre objeto
+
+		Object o = new String("Hola");
+		switch (o) {
+			case null -> {
+				System.out.println("null");
+				break;
+			}
+			case String s -> System.out.println("String: "+ s);
+			default -> System.out.println("ni null ni cadena");
+		}
 	}
 
 }

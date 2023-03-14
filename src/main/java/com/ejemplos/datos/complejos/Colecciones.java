@@ -386,6 +386,8 @@ public class Colecciones {
 		List<Integer> integers2 = List.copyOf(list3);
 		System.out.println(integers2);
 
+
+
 	}
 
 }

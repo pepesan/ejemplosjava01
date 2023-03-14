@@ -41,7 +41,7 @@ public class Ficheros {
 	/**
 	 * @param args
 	 */
-	public static void main(String[] args){
+	public static void main(String[] args) throws IOException {
 		File archivo = null;
 	    FileReader fr = null;
 	    BufferedReader br = null;
@@ -153,6 +153,31 @@ public class Ficheros {
 		}
 
 		System.out.println("Fin de ejecución");
+
+		// Java 12
+		// mismo contenido
+		Path filePath1 = Files.createTempFile("my-file", ".txt");
+		Path filePath2 = Files.createTempFile("my-file2", ".txt");
+		Files.writeString(filePath1,"a test string");
+		Files.writeString(filePath2,"a test string");
+
+		long mismatch = Files.mismatch(filePath1, filePath2);
+		System.out.println(mismatch);
+
+		filePath1.toFile().deleteOnExit();
+		filePath2.toFile().deleteOnExit();
+
+		// diferente contenido
+		filePath1 = Files.createTempFile("my-file", ".txt");
+		filePath2 = Files.createTempFile("my-file2", ".txt");
+		Files.writeString(filePath1,"a test string");
+		Files.writeString(filePath2,"a test string ....");
+
+		mismatch = Files.mismatch(filePath1, filePath2);
+		System.out.println(mismatch);
+
+		filePath1.toFile().deleteOnExit();
+		filePath2.toFile().deleteOnExit();
 
 	}
 
