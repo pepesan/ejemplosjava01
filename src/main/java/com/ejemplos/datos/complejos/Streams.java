@@ -1,9 +1,6 @@
 package com.ejemplos.datos.complejos;
 
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
@@ -17,9 +14,80 @@ public class Streams
     public static void main( String[] args )
     {
         System.out.println( "Ejemplos de Streams!" );
+        List<String> list = Arrays.asList("apple", "banana", "orange", "mango", "peach");
+        System.out.println("listado original");
+        System.out.println(list);
+        // filter
+        System.out.println("listado filtrado");
+        list.stream().filter(s -> !s.equals("apple")).forEach(System.out::println);
+        // toList
+        System.out.println("toList");
+        List<String> otroListado = list.stream().filter(s -> !s.equals("apple")).toList();
+        System.out.println(otroListado);
+        // map
+        System.out.println("listado mapeado");
+        list.stream().map(s -> s+"!").forEach(System.out::println);
+        // reduce
+        System.out.println("reduce");
+        System.out.println("listado original");
+        List<Integer> numeros = Arrays.asList(1,2,3,4,5,6);
+        Integer resultado = numeros
+                .stream()
+                .reduce(0, (acc, current) -> acc+=current);
+        System.out.println("suma de valores: "+ resultado);
+
+        // Count, Sum, Min, Max
+        // COUNT
+        long count =
+                List.of(1L, 2L, 3L)
+                        .stream()
+                        .reduce(0L,
+                                (acc, cur) -> acc + 1);
+        // SUM
+        Long sum =
+                List.of(1L, 2L, 3L)
+                        .stream()
+                        .reduce(0L,
+                                (acc, cur) -> acc + cur);
+        // MIN
+        Long min =
+                List.of(10L, 5L, 11L)
+                        .stream()
+                        .reduce(Long.MAX_VALUE,
+                                (acc, cur) -> acc.compareTo(cur) < 0 ? acc : cur);
+        // MAX
+        Long max =
+                List.of(10L, 5L, 11L)
+                        .stream()
+                        .reduce(Long.MIN_VALUE,
+                                (acc, cur) -> acc.compareTo(cur) > 0 ? acc : cur);
+
+
+        // flatmap
+        System.out.println("flatmap");
+        System.out.println("listado de listados");
+        // list of even numbers
+        List<Integer> even = Arrays.asList( 2, 4, 6, 8, 10);
+        // list of odd numbers
+        List<Integer> odd = Arrays.asList( 3, 5, 7, 9, 11);
+        // list of prime numbers
+        List<Integer> primes = Arrays.asList(17, 19, 23, 29, 31);
+        // list of numbers
+        List<List<Integer>> listOfNumbers = new ArrayList<>();
+        listOfNumbers.add(even);
+        listOfNumbers.add(odd);
+        listOfNumbers.add(primes);
+        System.out.println("listado de listados original");
+        List<Integer> flattenedList
+                = listOfNumbers.stream()
+                .flatMap(Collection::stream)
+                .toList();
+
+        System.out.println("list of numbers (flattend) : " + flattenedList);
+
         // takeWhile
         System.out.println("takeWhile");
-        String[] fruits = {"apple", "banana", "orange", "mango", "peach"};
+        String[] fruits = new String[]{"apple", "banana", "orange", "mango", "peach"};
         Stream<String> stream = Arrays.stream(fruits).takeWhile(s -> !"orange".equals(s));
         stream.forEach(System.out::println);
         // dropWhile
@@ -50,14 +118,14 @@ public class Streams
         // Clase Collectors
         // filtering
         System.out.println("filtering");
-        List<Integer> list = IntStream.of(2, 4, 6, 8, 10, 12)
+        List<Integer> list2 = IntStream.of(2, 4, 6, 8, 10, 12)
                 .boxed()
                 .collect(Collectors.filtering(i -> i % 4 == 0,
                         Collectors.toList()));
         System.out.println(list);
         // flatMapping
         System.out.println("flatMapping");
-        list = Stream.of(List.of(1, 2, 3, 4), List.of(5, 6, 7, 8))
+        list2 = Stream.of(List.of(1, 2, 3, 4), List.of(5, 6, 7, 8))
                 .collect(Collectors.flatMapping(
                         l -> l.stream()
                                 .filter(i -> i % 2 == 0),
@@ -78,7 +146,7 @@ public class Streams
         System.out.println(map);
         // nuevos métodos para Java 10
         // toUnmodifiableList
-        list = IntStream.range(1, 5)
+        list2 = IntStream.range(1, 5)
                 .boxed()
                 .collect(Collectors.toUnmodifiableList());
         System.out.println(list);
