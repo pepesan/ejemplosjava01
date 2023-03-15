@@ -9,6 +9,7 @@ public class Cadenas {
 	 * @param args
 	 */
 	public static void main(String[] args) {
+		System.out.println("Cadenas");
 		// Declaración del objeto
 		String texto1 = null;
 		System.out.println(texto1);
@@ -16,11 +17,14 @@ public class Cadenas {
 		texto1 = "¡Prueba de texto!";
 		System.out.println(texto1);
 		// Inicialización en base al constructor de la Clase
+		System.out.println("Inicialización de objeto");
 		texto1 = new String ("¡Prueba de texto!");
 		System.out.println(texto1);
+		System.out.println("Inicialización de objeto polimórfica");
 		char [] miPalabra = {'P','r','u','e','b','a'};
 		texto1 = new String(miPalabra);
 		System.out.println(texto1);
+		System.out.println("length: longitud en caracteres");
 		System.out.println(texto1.length());
 		System.out.println("Hola Mundo!".length());
 		System.out.println("Referencias");
@@ -35,16 +39,23 @@ public class Cadenas {
 			System.out.println("Ambos textos son iguales");
 		}
 		System.out.println(texto2);
+		// cambio de valor por nuevo objeto
+		System.out.println("cambio de valor con referencia");
+		texto2 = "Prueba";
+		if(texto1== texto2){
+			System.out.println("Ambas referencias son iguales");
+		}
+		if (texto1.equals(texto2)){
+			System.out.println("Ambos textos son iguales");
+		}
+		System.out.println(texto2);
+
+		System.out.println("concatenar");
 		texto2 ="Este es un texto que ocupa " +
  				"varias líneas, no obstante se puede "+
  				"perfectamente encadenar";
 		System.out.println(texto2);
-		if(texto1!= texto2){
-			System.out.println("Ambas referencias NO son iguales");
-		}
-		if (!texto1.equals(texto2)){
-			System.out.println("Ambos textos NO son iguales");
-		}
+		System.out.println("concatenar numeros a cadena");
 		texto2 += 12;
 		System.out.println(texto2);
 		char[] palabra = {'P','a','l','b','r','a'};//Array de char
@@ -70,9 +81,18 @@ public class Cadenas {
 		StringBuffer s2=new StringBuffer("Hola Mundo");
 		System.out.println(s2);
 		System.out.println(s2.length());
+		// añadir al final de un stringbuffer (no crea objeto nuevo, modifica el actual)
 		s2.append("!!!");
 		System.out.println(s2);
 		System.out.println(s2.length());
+		// saltos de linea
+		s2.append("\n");
+		s2.append("\n");
+		s2.append("\n");
+		System.out.println(s2);
+		// convertir a string desde stringbuffer
+		texto1 = s2.toString();
+		System.out.println(texto1);
 		String s3="Hola Mundo";
 		if(s2.equals(s3)){
 			System.out.println("Son iguales");
@@ -80,18 +100,28 @@ public class Cadenas {
 			System.out.println("No son iguales");
 		}
 		char c;
+		System.out.println("charAt");
 		c=s2.charAt(0);
 		System.out.println(c);
+		System.out.println("substring");
+		// start (inclusive), fin (exclusive)
+		s= "Hola Mundo!";
 		String s4=s.substring(0, 3);
 		System.out.println(s4);
 		int i;
+		System.out.println("indexOf");
 		i=s.indexOf("Mundo");
 		System.out.println(i);
+		System.out.println("indexOf");
 		s=s.replace('H', 'h');
 		System.out.println(s);
 		System.out.println(String.valueOf(s));
+		System.out.println("toUpperCase");
 		System.out.println(s.toUpperCase());
+		System.out.println("toLowerCase");
 		System.out.println(s.toLowerCase());
+
+		System.out.println("recorrer array de cadenas");
 		String dias="Lunes,Martes,Miércoles,Jueves," +
 				"Viernes,Sábado,Domingo";
 		String [] arrayDias=dias.split(",");
@@ -101,16 +131,21 @@ public class Cadenas {
 
 		// JAVA 11
 		// quitar espacios en blanco
+		System.out.println("Java 11: quitar espacios");
 		s = "  test string  ";
 		System.out.printf("'%s'%n", s);
+		System.out.println("strip");
 		String striped = s.strip();
 		System.out.printf("strip():%n '%s'%n", striped);
+		System.out.println("trim");
 		String trimmed = s.trim();
 		System.out.printf("trim():%n '%s'%n", trimmed);
 		// quitar desde le principio
+		System.out.println("stripLeading");
 		striped = s.stripLeading();
 		System.out.printf("stripLeading():%n '%s'%n", striped);
 		// quitar desde el final
+		System.out.println("stripLeading");
 		striped = s.stripTrailing();
 		System.out.printf("stripTrailing():%n '%s'%n", striped);
 
@@ -126,9 +161,11 @@ public class Cadenas {
 		// líneas de la cadena
 		System.out.println("lines");
 		s = "jujube\nsatsuma\nguava";
-		s.lines()
-				.forEach(System.out::println);
+		s
+			.lines()
+			.forEach(System.out::println);
 		// repetir?
+		System.out.println("repeat");
 		s = "--";
 		String newString = s.repeat(10);
 		System.out.println(newString);
@@ -142,8 +179,8 @@ public class Cadenas {
 		s= "\uD83D\uDC83 Woman Dancing";
 		System.out.println(s); //Woman Dancing EMOJI
 
-		// De momento no funciona XD (Feb  2022)
-		//String Vampire🧛 = "\uD83E\uDDDB";
+		// De momento no funciona XD (Marzo 2023)
+		// String vampire🧛 = "\uD83E\uDDDB";
 
 
 		// Java 12

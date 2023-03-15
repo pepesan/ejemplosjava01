@@ -1,5 +1,6 @@
 package com.ejemplos.datos;
 
+
 import java.util.Arrays;
 
 public class EjemplosArrays {
@@ -29,7 +30,9 @@ public class EjemplosArrays {
 		return s;
 	}
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		// Inicialización de un array
+		System.out.println("Array sencillo");
+		// tipo [] nombre = new tipo [numelementos];
 		int[] miArray = new int [2];
 
 		miArray[0] = 1;
@@ -39,23 +42,30 @@ public class EjemplosArrays {
 
 		int miArray2[]= new int[2];
 
+		// Declarar un array de manera explícita
+		System.out.println("Array explícito");
 		int[] miArray3 = {1,2,3};
 		System.out.println(miArray3[0]);
 		System.out.println(miArray3[1]);
 		System.out.println(miArray3[2]);
 
-		int[] arrayInt = new int [100] ;
+		System.out.println("Recorrer arrays");
+		int numElemento = 10;
+		int[] arrayInt = new int [numElemento] ;
 		int i;
+		System.out.println("Recorrer e inicializar arrays: for");
+		for (i=0;i<numElemento;i++){
+			arrayInt[i]=i;
+			System.out.println(arrayInt[i]);
+		}
+		System.out.println("Recorrer e inicializar arrays a 0: for con length");
 		for (i=0;i<arrayInt.length;i++){
-		//for (i=0;i<100;i++){
+		//for (i=0;i<10;i++){
 			arrayInt[i]=0;
 			System.out.println(arrayInt[i]);
 		}
 
-		for (i=0;i<100;i++){
-			arrayInt[i]=i;
-			System.out.println(arrayInt[i]);
-		}
+		System.out.println("Recorrer arrays: for");
 		int[]nums={1,2,3,4};
 		for (i=0;i<4;i++){
 			System.out.println(nums[i]);
@@ -64,8 +74,10 @@ public class EjemplosArrays {
 		// Arrays multidimensionales
 		System.out.println("Arrays Multidimensionales");
 		int[][] arrayDoble = new int[2][3];
+		// nombre[indicep][indicep']
 		arrayDoble[0][0] = 1;
 		System.out.println(arrayDoble[0][0]);
+		System.out.println("Recorrer Arrays Multidimensionales");
 		for (i=0; i<arrayDoble.length;i++){
 			for (var j= 0; j<arrayDoble[i].length; j++){
 				System.out.println("["+i+"]["+j+"]: "+arrayDoble[i][j]);
@@ -73,12 +85,14 @@ public class EjemplosArrays {
 		}
 		System.out.println("Fin primer ejemplo Arrays Multidimensionales");
 		// Array multidimensional no simétrico
+		System.out.println("Array multidimensional sin una definida");
 		int notas[][]=new int[5][];//Hay 5 arrays de enteros
 		notas[0]=new int[2]; //El primer array es de 100 enteros
 		notas[1]=new int[3]; //El segundo de 230
 		notas[2]=new int[4];
 		notas[3]=new int[5];
 		notas[4]=new int[6];
+		System.out.println("Recorrer un Array multidimensional no homogéneo en dimensiones");
 		for (i=0; i<notas.length;i++){
 			for (var j= 0; j<notas[i].length; j++){
 				System.out.println("["+i+"]["+j+"]: "+notas[i][j]);
@@ -86,11 +100,40 @@ public class EjemplosArrays {
 		}
 		System.out.println("Fin segundo ejemplo Arrays Multidimensionales");
 
+		// array de caracteres
+		System.out.println("Array de caracteres");
+		char [] caracteres = new char [10];
+		caracteres[0]= 'H';
+		System.out.println(caracteres[0]);
+
+		// array de caracteres de dos dimenciones
+		System.out.println("Array de caracteres Bi");
+		char [][] caracteresDoble = new char [10][];
+		for (i = 0; i<10; i++){
+			caracteresDoble[0] = new char[5];
+			caracteresDoble[0][0] = '3';
+			caracteresDoble[0][1] = '7';
+			caracteresDoble[0][2] = '0';
+			caracteresDoble[0][3] = '0';
+			caracteresDoble[0][4] = '1';
+		}
+		System.out.println(caracteresDoble);
+
+		// Array de cadenas
+		System.out.println("Array de cadenas");
+		String [] misCadenas = new String[2];
+		misCadenas[0] = "Araba";
+		misCadenas[1] = "Bizkaia";
+		System.out.println(misCadenas[0]);
+		System.out.println(misCadenas[1]);
+
 		// Clase Arrays
+		System.out.println("Clase Arrays");
 		int valores[]=new int[4];
-		Arrays.fill(valores,-1);//Todo el array vale -1
+		Arrays.fill(valores,-1);//Todas la posiciciones del array valen -1
 		System.out.println("Array Rellenado con Array.fill: " + valores);
 		System.out.println(valores[0]);
+		System.out.println("Array cambiado: " + valores);
 
 		// fromIndex (inclusive)
 		// toIndex (exclusive)
@@ -116,7 +159,7 @@ public class EjemplosArrays {
 		}
 
 		//For each de una dimensión
-
+		System.out.println("Foreach 1-3");
 		nums = new int[]{1,2,3};
 		// for(i=0;i<nums.length;i++){
 		// 	int valorPosicion = nums[i];
@@ -146,6 +189,7 @@ public class EjemplosArrays {
 		System.out.println("posicion del array del valor entrado: " + i);
 		// int[2][3] dobleArray
 		//For each (doble y anidado)
+		System.out.println("Foreach doble");
 		for (int[] fila: dobleArray){
 			for (int celda: fila){
 				System.out.println(celda);
@@ -174,11 +218,14 @@ public class EjemplosArrays {
 				System.out.println(celda);
 			}
 		}
-
+		System.out.println("ordenacion");
 		int x[]={4,5,2,3,7,8,2,3,9,5};
 		Arrays.sort(x);//Estará ordenado
+		for (int k : x){
+			System.out.println(k);
+		}
 		Arrays.sort(x,2,5);//Ordena del 2º al 4º elemento
-		System.out.println(x);
+
 
 		int arrayRellenable[]=new int[23];
 		Arrays.fill(arrayRellenable,-1);//Todo el array vale -1
