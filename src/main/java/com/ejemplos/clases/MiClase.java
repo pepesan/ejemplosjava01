@@ -1,5 +1,7 @@
 package com.ejemplos.clases;
 
+import java.util.Objects;
+
 public class MiClase{
     public Integer numAlumnos;
     private String nombre;
@@ -14,7 +16,7 @@ public class MiClase{
         this.nombre = "";
     }
 
-    MiClase(Integer numAlumnos, String nombre) {
+    public MiClase(Integer numAlumnos, String nombre) {
         this.numAlumnos = numAlumnos;
         this.nombre = nombre;
     }
@@ -42,6 +44,21 @@ public class MiClase{
                 ", nombre='" + this.nombre + '\'' +
                 '}';
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        MiClase miClase = (MiClase) o;
+        return Objects.equals(numAlumnos, miClase.numAlumnos) && Objects.equals(nombre, miClase.nombre);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(numAlumnos, nombre);
+    }
+
+    /*
     @Override
     public void finalize(){
         // código de liberación de memoria del objeto
@@ -50,4 +67,5 @@ public class MiClase{
         // https://docs.oracle.com/javase/9/docs/api/java/lang/ref/PhantomReference.html
         // ó https://www.baeldung.com/java-finalize usando los AutoCloseable
     }
+     */
 }
