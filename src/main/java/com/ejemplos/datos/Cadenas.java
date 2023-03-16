@@ -241,6 +241,14 @@ public class Cadenas {
                             """;
 
 		System.out.println(inputElement);
+
+		// Java 19
+		/*
+		String name = "Joan";
+		String info = STR."My name is \{name}";
+		assert info.equals("My name is Joan");
+
+		 */
 	}
 
 }
