@@ -1,12 +1,8 @@
 package com.ejemplos.hilos.virtual;
 
-import java.util.LinkedList;
-import java.util.List;
+
 import java.util.Random;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.Semaphore;
-import java.util.concurrent.TimeUnit;
+import java.util.concurrent.*;
 
 public class App {
     public static class Ejecutable implements Runnable{
@@ -16,6 +12,7 @@ public class App {
             System.out.println("llama a bbdd");
         }
     }
+
     public static void main(String[] args) throws InterruptedException {
         // hay que pasar al menos un parámetro para que cree hilos virtuales
         boolean vThreads = args.length > 0;
