@@ -1,30 +1,16 @@
 package com.ejemplos.clases.herencia;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import java.util.Objects;
 
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class Madre {
     private String name;
-    public Madre() {
-        this.name = "";
-    }
-    public Madre(String name) {
-        this.name = name;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    @Override
-    public String toString() {
-        return "Madre{" +
-                "name='" + name + '\'' +
-                '}';
-    }
 
     @Override
     public boolean equals(Object o) {

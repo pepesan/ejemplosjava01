@@ -1,5 +1,8 @@
 package com.ejemplos.clases.herencia;
 
+import lombok.Data;
+
+@Data
 public class Vehiculo {
     private Float velocidad;
 
@@ -11,18 +14,5 @@ public class Vehiculo {
         this.velocidad = velocidad;
     }
 
-    public Float getVelocidad() {
-        return velocidad;
-    }
 
-    public void setVelocidad(Float velocidad) {
-        this.velocidad = velocidad;
-    }
-
-    @Override
-    public String toString() {
-        return "Vehiculo{" +
-                "velocidad=" + velocidad +
-                '}';
-    }
 }

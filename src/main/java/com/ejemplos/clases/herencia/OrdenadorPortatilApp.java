@@ -7,11 +7,11 @@ public class OrdenadorPortatilApp {
         ordenador.setMemoria(16);
         ordenador.setHdd(2);
         System.out.println(ordenador);
-        Portatil portatil = new Portatil();
+        OrdenadorPortatil portatil = new OrdenadorPortatil();
         System.out.println(portatil);
-        portatil = new Portatil("AMD 7950X", 32, 2, 99.99);
+        portatil = new OrdenadorPortatil("AMD 7950X", 32, 2, 99.99);
         System.out.println(portatil);
-        Portatil portatil2 = new Portatil("AMD 7950X", 32, 2, 99.99);
+        OrdenadorPortatil portatil2 = new OrdenadorPortatil("AMD 7950X", 32, 2, 99.99);
         if (portatil.equals(portatil2)){
             System.out.println("Ambos objetos son iguales");
         }
