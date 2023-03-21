@@ -19,22 +19,90 @@ public class Streams
         System.out.println(list);
         // filter
         System.out.println("listado filtrado");
-        list.stream().filter(s -> !s.equals("apple")).forEach(System.out::println);
+        list
+            // conversión a un Stream
+            .stream()
+            // filtrado de datos dentro del stream
+            .filter(
+                // función lambda
+                // public Boolean funcionFiltrado(String cadena) -> {
+                //      return true o false
+                // }
+                // arrow function
+                // (parametros) -> { bloque de código de la función }
+                // (String s)  -> {return !s.equals("apple")}
+                (s) -> !s.equals("apple")
+                // devolverá true -> deja elemento del listado en el resultado
+                // devolverá false -> NO deja elemento del listado en el resultado
+            )
+            // imprimir los datos por pantalla
+            //forEach
+            .forEach(
+                    /*
+                    (s) -> {
+                        System.out.println(s);
+                    }
+                     */
+                    System.out::println
+            );
         // toList
         System.out.println("toList");
-        List<String> otroListado = list.stream().filter(s -> !s.equals("apple")).toList();
+        List<String> otroListado = list
+            .stream()
+            .filter(s -> !s.equals("apple"))
+            // puede tener menos elementos que el stream original
+           // casting al tipo original
+           .toList();
         System.out.println(otroListado);
         // map
         System.out.println("listado mapeado");
-        list.stream().map(s -> s+"!").forEach(System.out::println);
+        list
+            .stream()
+            // transformar objeto a objeto
+            .map(
+                    /*
+                    String funcionTransformadora(String s) -> {
+                        return s+ "modificación";
+                    }
+                    */
+                    s -> s+"!"
+            )
+            // stream de datos del mismo número de elementos que el stream original
+            .forEach(System.out::println);
         // reduce
         System.out.println("reduce");
         System.out.println("listado original");
         List<Integer> numeros = Arrays.asList(1,2,3,4,5,6);
-        Integer resultado = numeros
+        // forma antigua
+        Integer sumaTodosLosNumeros  = 0;
+        for (Integer i : numeros) {
+            sumaTodosLosNumeros+= i;
+        }
+
+        sumaTodosLosNumeros = numeros
                 .stream()
-                .reduce(0, (acc, current) -> acc+=current);
-        System.out.println("suma de valores: "+ resultado);
+                .reduce(// valor inicial de acc
+                        0,
+                        // función que maneja en el foreach
+                        // acc = valor que vamos pasando de llamada en llamada
+                        // current = valor actual del elemento visitado en cada iteración del foreach
+                        // valor devuelto es la suma de los dos valores
+                        (acc, current) -> acc+=current);
+        // el valor acumulado se almacena en sumaTodosLosNumeros
+        System.out.println("suma de valores: "+ sumaTodosLosNumeros);
+
+
+        Integer multiplicaTodosLosNumeros = numeros
+                .stream()
+                .reduce(// valor inicial de acc
+                        1,
+                        // función que maneja en el foreach
+                        // acc = valor que vamos pasando de llamada en llamada
+                        // current = valor actual del elemento visitado en cada iteración del foreach
+                        // valor devuelto es la multiplicación de los dos valores
+                        (acc, current) -> acc*=current);
+        // el valor acumulado se almacena en sumaTodosLosNumeros
+        System.out.println("multiplicación de valores: "+ multiplicaTodosLosNumeros);
 
         // Count, Sum, Min, Max
         // COUNT
@@ -85,18 +153,28 @@ public class Streams
 
         System.out.println("list of numbers (flattend) : " + flattenedList);
 
+        // Java 9-11
         // takeWhile
         System.out.println("takeWhile");
         String[] fruits = new String[]{"apple", "banana", "orange", "mango", "peach"};
         Stream<String> stream = Arrays.stream(fruits).takeWhile(s -> !"orange".equals(s));
         stream.forEach(System.out::println);
+
         // dropWhile
         System.out.println("dropWhile");
         stream = Arrays.stream(fruits).dropWhile(s -> !"orange".equals(s));
         stream.forEach(System.out::println);
+
+
         // iterate
         System.out.println("iterate");
-        Stream<String> iterate = Stream.iterate("-", s -> s.length() < 5, s -> s + "-");
+        Stream<String> iterate = Stream.iterate(
+                // semilla
+                "-",
+                // condición de while
+                s -> s.length() < 5,
+                // dato a generar
+                s -> s + "-");
         iterate.forEach(System.out::println);
         // ofNullable
         System.out.println("ofNullable con dato");

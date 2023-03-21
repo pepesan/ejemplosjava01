@@ -45,8 +45,9 @@ public class Ficheros {
 		File archivo = null;
 	    FileReader fr = null;
 	    BufferedReader br = null;
+		File file = null;
 		try{
-			File file = new File("./md5sum.txt");
+			file = new File("./md5sum.txt");
 			if(file.createNewFile()) {
 				System.out.println("Success!");
 			}else{
@@ -98,7 +99,7 @@ public class Ficheros {
 	            e2.printStackTrace();
          }
 	  }
-	      File file = new File ("./md5sum.txt");
+	      file = new File ("./md5sum.txt");
 	      try {
 	    	  // A partir del objeto File creamos el fichero f�sicamente
 	    	  if (file.createNewFile())
