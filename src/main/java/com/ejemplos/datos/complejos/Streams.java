@@ -190,6 +190,10 @@ public class Streams
         stream2.forEach(System.out::println);
         // IntStream, LongStream, DoubleStream
         System.out.println("IntStream");
+        /*
+            List<Integer> listado = List.of(2, 4, 6, 8, 9, 10, 11);
+            listado.stream();
+         */
         IntStream.of(2, 4, 6, 8, 9, 10, 11)
                 .takeWhile(i -> i % 2 == 0)
                 .forEach(System.out::println);

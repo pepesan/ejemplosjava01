@@ -241,7 +241,7 @@ public class Cadenas {
 
 		System.out.println(inputElement);
 
-		// Java 19
+		// Java 19-21
 		/*
 		String name = "Joan";
 		String info = STR."My name is \{name}";
