@@ -55,18 +55,39 @@ public class Colecciones {
 		listadoDeObjetos.add("Hola Mundo");
 		listadoDeObjetos.add(new Direccion());
 		listadoDeObjetos.add(new Cliente());
+
 		// imprime el primer elemento del listado
 		System.out.println(listadoDeObjetos.get(0));
+		Object object = listadoDeObjetos.get(0);
+		if (object instanceof Integer){
+			Integer entero = (Integer) object;
+			System.out.println("Es un entero:  "+ entero);
+		}
+		// Java 12
+		if (object instanceof Integer entero){
+			System.out.println("Es un entero molon:  "+ entero);
+		}
+
+
 		System.out.println(listadoDeObjetos.get(3));
 		listadoDeObjetos.remove(2);
 		System.out.println(listadoDeObjetos.size());
 		// Inicializamos otro objeto pero con una implementación diferente
 		List<String> listado=new LinkedList<String>();
+		// no puedo meter otra cosa que no sea String
+		// listado.add(2);
 		listado.add("Uno");
 		listado.add("Dos");
 		listado.add("Tres");
-		System.out.println(listado.get(0).length());;
+		// numero de elementos del listado
+		System.out.println(listado.size());
+		// devuelve el elemento en una posición
+		System.out.println(listado.get(0));
+		// devuelve el número de caracteres de la string en la primera posición
+		System.out.println(listado.get(0).length());
+
 		imprimeListado(listado);
+		// quita un elemento en base a su posición
 		listado.remove(1);
 		imprimeListado(listado);
 		System.out.println(listado.size());
@@ -74,6 +95,8 @@ public class Colecciones {
 		listado.add("Dos");
 		listado.add("Dos");
 		// borra el primer objeto que sea igual al pasado
+		// quita un elemento en base a su valor
+		// esa clase que manejamos en el listado debe tener implementado equals y hashcode
 		listado.remove("Dos");
 		System.out.println("borrando un valor");
 		imprimeListado(listado);

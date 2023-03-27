@@ -5,14 +5,14 @@ package com.ejemplos.clases.generics;
  */
 public class Box<T> {
 
-    private T t;
+    private T dato;
 
-    public void add(T t) {
-        this.t = t;
+    public void setDato(T dato) {
+        this.dato = dato;
     }
 
-    public T get() {
-        return t;
+    public T getDato() {
+        return dato;
     }
 
 }
