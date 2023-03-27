@@ -46,7 +46,10 @@ public class Colecciones {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		// Objeto que es un listado de objetos
+		// array List de usa para datos que caso no cambian
 		List <Object> listadoDeObjetos= new ArrayList<>();
+		// linked list se usa para datos cambiantes
+		listadoDeObjetos = new LinkedList<>();
 		// Añade un elemento al listado
 		listadoDeObjetos.add(2);
 		listadoDeObjetos.add("Hola Mundo");
