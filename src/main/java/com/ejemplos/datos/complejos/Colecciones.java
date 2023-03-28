@@ -136,6 +136,8 @@ public class Colecciones {
 		// Inverso
 		Collections.sort(listado, Collections.reverseOrder());
 
+		// definimos una clase como dato a almacenar en el listado
+		// definimos el tamaño inicial del array donde guarda el listado
 		List<Direccion> listadoDirecciones = new ArrayList<>();
 		Direccion d1 = new Direccion();
 		d1.setCalle("Salamanca");
@@ -167,6 +169,9 @@ public class Colecciones {
 		System.out.println(listadoDirecciones.get(0));
 
 
+		// Colección de tipo Set
+		// conjunto de datos no ordenador y no repetibles
+		System.out.println("Ejemplos de Set");
 		Set<Integer> conjuntoNumeros = new HashSet<>();
 		conjuntoNumeros.add(1);
 		conjuntoNumeros.add(1);
@@ -199,8 +204,8 @@ public class Colecciones {
 				new Direccion("calle1","12")
 		};
 		Set<Direccion> conjuntoDirecciones=
-		// 		new TreeSet<Direccion>(Comparator.comparing(Direccion::getCalle));
-				new TreeSet<Direccion>(new CalleComp());
+				new TreeSet<Direccion>(Comparator.comparing(Direccion::getCalle));
+		//		new TreeSet<Direccion>(new CalleComp());
 		conjuntoDirecciones.add(direcciones[0]);
 		conjuntoDirecciones.add(direcciones[1]);
 		conjuntoDirecciones.add(direcciones[2]);
@@ -239,7 +244,11 @@ public class Colecciones {
 		System.out.println(mapa.get(0));
 		mapa.remove(0);
 		System.out.println(mapa);
+		// devuelve null si intenta devolver un dato que no existe su clave
+		System.out.println(mapa.get(0));
 		// Mapa de asociación de Strings
+		// Diccionarios de String,String
+		System.out.println("Diccionarios de String,String");
 		mapa=new HashMap<String,String>();
 		mapa.put("nombre","Pepe");
 		mapa.put("dni","789654A");
@@ -249,6 +258,7 @@ public class Colecciones {
 		// borramos el elemento de una determinada clave
 		mapa.remove("nombre");
 		System.out.println(mapa);
+		// devuelve null si intenta devolver un dato que no existe su clave
 		System.out.println(mapa.get("nombre"));
 		try {
 			mapa.get("nombre").toString();
@@ -262,7 +272,10 @@ public class Colecciones {
 		System.out.println(client);
 
 		// ¿Qué es esto?
+		// definición de un "mapa complejo"
 		mapa=new HashMap<String,HashMap<String,Cliente>>();
+		// el tipo de la clave es una String
+		// el tipo del Valor es un HashMap<String,Cliente>
 		// Un mashmap que dentro como valor tiene otro hashmap
 		// Inception?
 		HashMap miniHashMap = new HashMap<String,Cliente> ();
@@ -272,8 +285,36 @@ public class Colecciones {
 		miniHashMap.put("Direccion", new Cliente("Marta", "07988785W"));
 		mapa.put("Fiscal", miniHashMap);
 		System.out.println("HashMap de HashMaps: " + mapa);
+		System.out.println(mapa.get("Contacto"));
+		miniHashMap = (HashMap<String, Cliente>) mapa.get("Contacto");
+		System.out.println(miniHashMap.get("Direccion"));
 
+		// mapa de listados de cadenas
+		System.out.println("Ejemplo de mapa de listados de cadenas");
 		mapa = new HashMap<Integer, List<String>>();
+		// inicializo las cadenas
+		List<String> listadoInterno = new ArrayList<>();
+		List<String> listadoInterno2 = new ArrayList<>();
+		// relleno los listados de cadenas
+		listadoInterno.add("0:uno");
+		listadoInterno.add("0:dos");
+		listadoInterno2.add("1:uno");
+		listadoInterno2.add("1:dos");
+		mapa.put(0,listadoInterno);
+		mapa.put(1,listadoInterno2);
+		// capturo el conjunto de claves del mapa [0,1]
+		Set<Integer> claves = mapa.keySet();
+		// recorro el conjunto de claves del mapa
+		for (Integer j : claves) {
+			// j será cada clave del mapa
+			// capturo el listado de cadenas asociado a esa clave
+			listadoInterno = (List<String>)mapa.get(j);
+			// recorro el listado de cadenas asociado a esa clave
+			for (String miCadena : listadoInterno) {
+				// miCadena será cada cadena del listado
+				System.out.println(miCadena);
+			}
+		}
 
 		//Map m1 = new HashMap<Object,Object>();
 		Map m1 = new HashMap();
