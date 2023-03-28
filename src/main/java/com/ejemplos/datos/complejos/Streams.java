@@ -15,13 +15,59 @@ public class Streams
     {
         System.out.println( "Ejemplos de Streams!" );
         List<String> list = Arrays.asList("apple", "banana", "orange", "mango", "peach");
+
+        // código de filtrado
+        List<String> listadoFiltrado = new ArrayList<>();
+        for (String s : list) {
+            if (!s.equals("apple")) {
+                listadoFiltrado.add(s);
+            }
+        }
+        // imprimir los elementos por pantalla
+        for (String s : listadoFiltrado) {
+            System.out.println(s);
+        }
+
+
+
         System.out.println("listado original");
         System.out.println(list);
+
+        // foreach
+        // coge el listado
+        list
+            // ejecuta mediante un foreach una función
+            .forEach(
+                    // imprime cada dato por pantalla
+                    System.out::println
+                    /*
+                        // método tradicional
+                        public void imprime(String s){
+                            System.out.println(s);
+                        }
+                        // método lambda (array function ->)
+                        // no hay nombre de función realmente
+                        (String s) -> {
+                            System.out.println(s);
+                        }
+                        // como sabemos  que el dato guardado en el stream es de tipo String
+                        s -> {System.out.println(s);}
+                        // como la función sólo tiene una línea podemos quitar las {} y el ;
+                        s -> System.out.println(s)
+                        // como sólo pasamos un único parámetro a la función
+                        // y la llamada a la función println recibe un sólo parámetro
+                        // no hace falta si declarar el argumento
+                        // ni pasarlo a la función println
+                        System.out::println
+                     */
+            );
+
+
         // filter
         System.out.println("listado filtrado");
         list
             // conversión a un Stream
-            .stream()
+            .stream() // Stream<String>
             // filtrado de datos dentro del stream
             .filter(
                 // función lambda
@@ -30,8 +76,12 @@ public class Streams
                 // }
                 // arrow function
                 // (parametros) -> { bloque de código de la función }
-                // (String s)  -> {return !s.equals("apple")}
-                (s) -> !s.equals("apple")
+                // (String cadena)  -> {return !cadena.equals("apple")}
+                (cadena) -> !cadena.equals("apple")
+                // en Scala se escribe así parecido
+                // (_) -> !_.equals("apple")
+                // _ -> !_.equals("apple")
+                // !_.equals("apple")
                 // devolverá true -> deja elemento del listado en el resultado
                 // devolverá false -> NO deja elemento del listado en el resultado
             )
@@ -45,6 +95,13 @@ public class Streams
                      */
                     System.out::println
             );
+
+        // código sin comentarios
+        list
+            .stream()
+            .filter(s -> !s.equals("apple"))
+            .forEach(System.out::println);
+
         // toList
         System.out.println("toList");
         List<String> otroListado = list
