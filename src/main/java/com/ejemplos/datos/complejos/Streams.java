@@ -39,7 +39,7 @@ public class Streams
             // ejecuta mediante un foreach una función
             .forEach(
                     // imprime cada dato por pantalla
-                    System.out::println
+                    System.out::println // (s)
                     /*
                         // método tradicional
                         public void imprime(String s){
@@ -69,6 +69,7 @@ public class Streams
             // conversión a un Stream
             .stream() // Stream<String>
             // filtrado de datos dentro del stream
+            // List<String> list = Arrays.asList("apple", "banana", "orange", "mango", "peach");
             .filter(
                 // función lambda
                 // public Boolean funcionFiltrado(String cadena) -> {
@@ -111,21 +112,45 @@ public class Streams
            // casting al tipo original
            .toList();
         System.out.println(otroListado);
-        // map
-        System.out.println("listado mapeado");
+
+
         list
-            .stream()
-            // transformar objeto a objeto
-            .map(
+                .stream()
+                // transformar objeto a objeto
+                .map(
                     /*
-                    String funcionTransformadora(String s) -> {
+                    public String funcionTransformadora(String s) {
                         return s+ "modificación";
                     }
+                    (String s) -> {return s+"modificacion";}
+                    (s) -> {return s+"modificacion";}
+                    s -> {return s+"modificacion";}
+                    s -> s+"modificacion"
                     */
-                    s -> s+"!"
-            )
-            // stream de datos del mismo número de elementos que el stream original
-            .forEach(System.out::println);
+                        s -> s+"!"
+                )
+                // stream de datos del mismo número de elementos que el stream original
+                .forEach(System.out::println);
+
+        // map que devuelve otra cosa
+        System.out.println("listado mapeado que devuelve otro tipo de dato");
+        list
+                .stream()
+                // transformar objeto a objeto
+                .map(
+                        String::length
+                        // public Integer dameLength(String s){
+                        //   return s.lenght();
+                        // }
+                        // (String s) -> {return s.length();}
+                        // (s) -> {return s.length();}
+                        // s -> {return s.length();}
+                        // s -> s.length()
+
+                )
+                // stream de datos del mismo número de elementos que el stream original
+                .forEach(System.out::println);
+
         // reduce
         System.out.println("reduce");
         System.out.println("listado original");
@@ -135,6 +160,7 @@ public class Streams
         for (Integer i : numeros) {
             sumaTodosLosNumeros+= i;
         }
+        System.out.println(sumaTodosLosNumeros);
 
         sumaTodosLosNumeros = numeros
                 .stream()
@@ -144,7 +170,16 @@ public class Streams
                         // acc = valor que vamos pasando de llamada en llamada
                         // current = valor actual del elemento visitado en cada iteración del foreach
                         // valor devuelto es la suma de los dos valores
-                        (acc, current) -> acc+=current);
+                        (acc, current) -> acc+=current
+                        /*
+                            public void sumaAcumulada(Integer acc, Integer current){
+                                acc+=current;
+                            }
+                            (Integer acc, Integer current) -> {return acc+=current;}
+                            (acc, current) -> {return acc+=current;}
+                            (acc, current) -> acc+=current
+                         */
+                );
         // el valor acumulado se almacena en sumaTodosLosNumeros
         System.out.println("suma de valores: "+ sumaTodosLosNumeros);
 
@@ -167,7 +202,8 @@ public class Streams
                 List.of(1L, 2L, 3L)
                         .stream()
                         .reduce(0L,
-                                (acc, cur) -> acc + 1);
+                                (acc, cur) -> acc + 1
+                        );
         // SUM
         Long sum =
                 List.of(1L, 2L, 3L)
@@ -203,9 +239,20 @@ public class Streams
         listOfNumbers.add(odd);
         listOfNumbers.add(primes);
         System.out.println("listado de listados original");
-        List<Integer> flattenedList
-                = listOfNumbers.stream()
-                .flatMap(Collection::stream)
+        List<Integer> flattenedList = listOfNumbers
+                .stream()
+                .flatMap(
+                        Collection::stream
+                        /*
+                        public Stream<Integer> devuelveInteger (List<Integer> listado){
+                            return listado.stream();
+                        }
+                        (List<Integer> listado) -> {return listado.stream();}
+                        (listado) -> {return listado.stream();}
+                        (listado) -> listado.stream()
+                        Collection::stream
+                         */
+                )
                 .toList();
 
         System.out.println("list of numbers (flattend) : " + flattenedList);
