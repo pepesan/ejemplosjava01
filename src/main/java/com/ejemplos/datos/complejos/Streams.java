@@ -71,14 +71,15 @@ public class Streams
             // filtrado de datos dentro del stream
             // List<String> list = Arrays.asList("apple", "banana", "orange", "mango", "peach");
             .filter(
-                // función lambda
+                // función lambda (arrow function)
                 // public Boolean funcionFiltrado(String cadena) -> {
                 //      return true o false
                 // }
                 // arrow function
                 // (parametros) -> { bloque de código de la función }
                 // (String cadena)  -> {return !cadena.equals("apple")}
-                (cadena) -> !cadena.equals("apple")
+                // (cadena) -> !cadena.equals("apple")
+                cadena -> !cadena.equals("apple")
                 // en Scala se escribe así parecido
                 // (_) -> !_.equals("apple")
                 // _ -> !_.equals("apple")
@@ -113,7 +114,7 @@ public class Streams
            .toList();
         System.out.println(otroListado);
 
-
+        // Map
         list
                 .stream()
                 // transformar objeto a objeto
@@ -140,7 +141,7 @@ public class Streams
                 .map(
                         String::length
                         // public Integer dameLength(String s){
-                        //   return s.lenght();
+                        //   return s.length();
                         // }
                         // (String s) -> {return s.length();}
                         // (s) -> {return s.length();}
@@ -173,7 +174,7 @@ public class Streams
                         (acc, current) -> acc+=current
                         /*
                             public void sumaAcumulada(Integer acc, Integer current){
-                                acc+=current;
+                                return acc+=current;
                             }
                             (Integer acc, Integer current) -> {return acc+=current;}
                             (acc, current) -> {return acc+=current;}
@@ -198,7 +199,7 @@ public class Streams
 
         // Count, Sum, Min, Max
         // COUNT
-        long count =
+        long count = // 3
                 List.of(1L, 2L, 3L)
                         .stream()
                         .reduce(0L,
@@ -211,13 +212,13 @@ public class Streams
                         .reduce(0L,
                                 (acc, cur) -> acc + cur);
         // MIN
-        Long min =
+        Long min = // 5L
                 List.of(10L, 5L, 11L)
                         .stream()
                         .reduce(Long.MAX_VALUE,
                                 (acc, cur) -> acc.compareTo(cur) < 0 ? acc : cur);
         // MAX
-        Long max =
+        Long max = // 11L
                 List.of(10L, 5L, 11L)
                         .stream()
                         .reduce(Long.MIN_VALUE,
@@ -234,12 +235,13 @@ public class Streams
         // list of prime numbers
         List<Integer> primes = Arrays.asList(17, 19, 23, 29, 31);
         // list of numbers
-        List<List<Integer>> listOfNumbers = new ArrayList<>();
-        listOfNumbers.add(even);
-        listOfNumbers.add(odd);
-        listOfNumbers.add(primes);
+        List<List<Integer>> listOfLists = new ArrayList<>();
+        listOfLists.add(even);
+        listOfLists.add(odd);
+        listOfLists.add(primes);
         System.out.println("listado de listados original");
-        List<Integer> flattenedList = listOfNumbers
+        // obtener un listado simple con el contenido de todos los listados de segundo nivel
+        List<Integer> flattenedList = listOfLists
                 .stream()
                 .flatMap(
                         Collection::stream
@@ -250,6 +252,7 @@ public class Streams
                         (List<Integer> listado) -> {return listado.stream();}
                         (listado) -> {return listado.stream();}
                         (listado) -> listado.stream()
+                        listado -> listado.stream()
                         Collection::stream
                          */
                 )
