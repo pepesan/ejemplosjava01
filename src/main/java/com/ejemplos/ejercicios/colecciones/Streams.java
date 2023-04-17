@@ -15,21 +15,27 @@ public class Streams {
         List<Integer> numeros = Arrays.asList(1,2,3,4,5,6);
         numeros
             .stream()
-            .filter( i -> i % 2 == 0)
+            .filter( i -> i % 2 == 0) // Stream<Integer> (filtrado)
             .forEach(System.out::println);
         // Dada una lista de strings, convertir todos los elementos a mayúsculas (map)
         List<String> listado = List.of("uno", "dos");
         listado
             .stream()
-            .map(String::toUpperCase)
+            // convierte cada uno de los elementos a mayúsculas mediante el método de String toUpperCase
+            .map(
+                    // (String s) -> {return s.toUpperCase();}
+                    String::toUpperCase
+            )
             .forEach(System.out::println);
         // Dado un array de enteros, devuelve el valor máximo (reduce)
         numeros = Arrays.asList(6,2,3,4,5,1);
-        Integer resultado = numeros.stream().reduce(
-            // valor inicial
-            Integer.MIN_VALUE,
-            // funcion del reduce
-            (acc, cur) -> acc.compareTo(cur) > 0 ? acc : cur
+        Integer resultado = numeros
+                .stream()
+                .reduce(
+                // valor inicial
+                Integer.MIN_VALUE,
+                // funcion del reduce
+                (acc, cur) -> acc.compareTo(cur) > 0 ? acc : cur
         );
         System.out.println("Max value: "+resultado);
 
@@ -42,7 +48,9 @@ public class Streams {
                 new Persona(25, "Sofía")
                 );
         personas.stream()
+                // devuelve el elemento que cumpla con la condición devuelta
                 .filter(p -> p.getEdad()>= 18)
+                // devolver en vez de la persona entera, sólo el nombre de la persona
                 .map(Persona::getNombre)
                 .forEach(System.out::println);
         // Dado un array de Strings, conviértelos a enteros y devuelve la suma de los mismos.
@@ -53,7 +61,8 @@ public class Streams {
                         Integer::sum);
         System.out.println("Suma : "+ resultado);
 
-        // Dado un array de Strings, filtra las palabras que tienen más de 5 letras y devuelve un listado con las mismas.
+        // Dado un array de Strings, filtra las palabras que tienen más de 5 letras
+        // y devuelve un listado con las mismas.
         List<String> listadoPalabras = List.of("Uno", "Cuarenta", "Preving");
         listadoPalabras.stream().filter(s -> s.length()>=5).forEach(System.out::println);
         // Supongamos que tenemos una lista de listas de enteros y queremos obtener una lista plana con todos los números

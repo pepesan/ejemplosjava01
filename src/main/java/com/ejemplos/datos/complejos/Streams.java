@@ -45,7 +45,7 @@ public class Streams
                         public void imprime(String s){
                             System.out.println(s);
                         }
-                        // método lambda (array function ->)
+                        // método lambda (arrow function ->)
                         // no hay nombre de función realmente
                         (String s) -> {
                             System.out.println(s);
@@ -110,8 +110,8 @@ public class Streams
             .stream()
             .filter(s -> !s.equals("apple"))
             // puede tener menos elementos que el stream original
-           // casting al tipo original
-           .toList();
+            // casting al tipo original
+            .toList();
         System.out.println(otroListado);
 
         // Map
@@ -239,6 +239,7 @@ public class Streams
         listOfLists.add(even);
         listOfLists.add(odd);
         listOfLists.add(primes);
+        listOfLists = Arrays.asList(even, odd, primes);
         System.out.println("listado de listados original");
         // obtener un listado simple con el contenido de todos los listados de segundo nivel
         List<Integer> flattenedList = listOfLists
