@@ -65,7 +65,7 @@ public class Streams
 
         // filter
         System.out.println("listado filtrado");
-        list
+        list // List<String>
             // conversión a un Stream
             .stream() // Stream<String>
             // filtrado de datos dentro del stream
@@ -99,6 +99,7 @@ public class Streams
             );
 
         // código sin comentarios
+        System.out.println("filter");
         list
             .stream()
             .filter(s -> !s.equals("apple"))
@@ -173,7 +174,7 @@ public class Streams
                         // valor devuelto es la suma de los dos valores
                         (acc, current) -> acc+=current
                         /*
-                            public void sumaAcumulada(Integer acc, Integer current){
+                            public Integer sumaAcumulada(Integer acc, Integer current){
                                 return acc+=current;
                             }
                             (Integer acc, Integer current) -> {return acc+=current;}
