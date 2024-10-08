@@ -8,8 +8,10 @@ public class Variables {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		byte n=3;
+		// Definición de la variables
+		byte n;
+		// Iniciación de la variable
+		n=3;
 		System.out.println(n);
 		int i=1;
 		System.out.println(i);
@@ -17,7 +19,7 @@ public class Variables {
 		System.out.println(j);
 		long k=2000000000;
 		System.out.println(k);
-		char c='c';
+		char c='森';
 		System.out.println(c);
 		float f=3.4f;
 		System.out.println(f);
@@ -25,6 +27,11 @@ public class Variables {
 		System.out.println(d);
 		boolean bool=true;
 		System.out.println(bool);
+
+		// casting
+		byte b=1;
+		int i2=(int)b;
+		System.out.println(i2);
 
 		// Java 8
 		// tipo Opcional
