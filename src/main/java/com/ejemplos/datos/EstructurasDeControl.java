@@ -9,17 +9,24 @@ public class EstructurasDeControl {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		// Ejemplos de estructuras de control
 		int i=0;
 		int j=1;
+		// IF sentencia condicional
 		if (i<j){
 			System.out.println("i es menor que j");
 		}
+		if (i<j)
+			// sólo una línea sin {}
+			System.out.println("i es menor que j");
+
 		if(i<j){
 			System.out.println("i es menor que j");
 		}else{
 			System.out.println("i no es menor que j");
 		}
+		i=0;
+		j=1;
 		if(i>j){
 			System.out.println("i es mayor que j");
 		}else{
@@ -45,13 +52,20 @@ public class EstructurasDeControl {
 		}else{
 			System.out.println("i no es distinto que j");
 		}
-		
+		// cuando trabajamos conn objetos y no variables de tipo primitivo
+		// trabajamos con referencias
+		// cada objeto nuevo tiene su referencia única
 		String c1= new String("Hola");
 		String c2= new String("Hola");
 		if(c1==c2){
+			System.out.println("Las referencias son iguales, " +
+					"aunque contengan el mismo valor");
+		}else {
 			System.out.println("Los objetos son distintos, " +
 					"aunque contengan el mismo valor");
 		}
+		// usamos en objetos el método equals para comparar si son iguales
+		// comprobamos que tienen el mismo contenido
 		if(c1.equals(c2)){
 			System.out.println("Los objetos cadena son iguales");
 		}else{
@@ -60,11 +74,13 @@ public class EstructurasDeControl {
 		i=1;
 		j=1;
 		//operadores l�gicos
+		// Operación AND
 		if(i==j && c1.equals(c2)){
 			System.out.println("Se cumplen las dos condiciones");
 		}else{
 			System.out.println("No se cumplen las dos condiciones");
 		}
+		// Operación OR
 		if(i==j || c1.equals("Pepe")){
 			System.out.println("Se cumple al menos una de " +
 					"las dos condiciones, aunque c1 vale \""+c1+"\"");
@@ -72,6 +88,23 @@ public class EstructurasDeControl {
 			System.out.println("No se cumplen ninguna de " +
 			"las dos condiciones");
 		}
+
+
+		boolean cierto = true;
+		if (cierto== true){
+			System.out.println("Cierto es True");
+		}
+		if (cierto){
+			System.out.println("Cierto es True");
+		}
+		// Operación Not (binario)
+		cierto=false;
+		if (!cierto){
+			System.out.println("!Cierto es True");
+			System.out.println("Cierto es False");
+		}
+
+
 		//operadores de bits
 		int k=5;
 		int p=7;
@@ -84,7 +117,7 @@ public class EstructurasDeControl {
 		
 		//SWITCH
 		System.out.println("Switches");
-		i=3;
+		i=2;
 		//solo se puede usar con int's
 		switch(i){
 			case 1:
@@ -106,7 +139,7 @@ public class EstructurasDeControl {
 		switch(cadena){
 			case "Valor2":
 			case "Valor":
-				System.out.println("vale 'Valor'");
+				System.out.println("vale 'Valor' ó 'Valor2'");
 				break;
 			case "Sin Valor":
 				System.out.println("Sin Valor");
@@ -117,13 +150,18 @@ public class EstructurasDeControl {
 				break;
 		}
 		// Java 12
-
+		// nuevo formato de swtich basado en funciones arrow (flecha) -> {}
 		switch (cadena){
-			case "Valor2","Valor" -> {
-				System.out.println("vale 'Valor'");
+			case "Valor2","Valor" -> //{
+					// podemos obviar las {} si es sólo una línea
+				System.out.println("vale 'Valor' ó 'Valor2'");
+			//}
+			case "Sin Valor" -> {
+				// si hacemos más de una línea es obligatorio ponerlo
+				System.out.println("Caso sin valor");
+				System.out.println("Sin Valor");
 			}
-			case "Sin Valor" -> {System.out.println("Sin Valor");}
-			default-> {System.out.println("Otro Valor");}
+			default-> System.out.println("Otro Valor");
 		}
 		var resultado= switch (cadena){
             case "Valor2","Valor" -> "Valor 1";
@@ -134,18 +172,28 @@ public class EstructurasDeControl {
 		System.out.println("fin de Switch");
 
 
-
-		// for de tipo simple
-		for (i=0;i<3;i++){
-			System.out.println(i);
+		// Bucles
+		//For
+		// for de tipo simple que da 3 vueltas
+		var indice = 0;
+		for (indice=0;indice<3;indice++){
+			System.out.println(indice);
+		}
+		// for de tipo simple que da 3 vueltas
+		indice=0;
+		for (;indice<3;){
+			System.out.println(indice);
+			indice++;
 		}
 		// while
+		// bucle que da 3 vueltas
 		i=0;
 		while (i<3){
 			System.out.println(i);
 			i++;
 		}
 		// do while
+		// bucle que da 3 vueltas
 		i=0;
 		do{
 			System.out.println(i);
@@ -172,20 +220,20 @@ public class EstructurasDeControl {
 			System.out.println(i);
 			i++;
 		}while(i<4);
-
+		System.out.println("Uso de Break en for");
 		for (i=0; i<4;i++){
 			if (i==2){
 				break; // sale cuando i == 2
 			}
 			System.out.println("For para break: " + i);
 		}
-
+		System.out.println("Uso de Break y Continue en for");
 		for (i=0; i<4;i++){
 			if (i == 1){
 				continue; // saltar al final del bucle e iniciar una nueva vuelta
 			}
-			if (i==2){
-				break; // sale cuando i == 2
+			if (i==3){
+				break; // sale del bucle cuando i == 3
 			}
 			System.out.println("For para break: " + i);
 		}
@@ -201,6 +249,7 @@ public class EstructurasDeControl {
 			dos: for(j=0;j<10;j++ )
 			{
 	           if(i==0){
+				   // continue;
 				continue dos;           // seguiría en el bucle interno
 	           }
 	           if(i==1){
