@@ -70,6 +70,12 @@ public class Operadores {
 		f/=j;
 		System.out.println(f);
 
+		boolean mayorDeEdad, menorDeEdad;
+		int edad = 21;
+		mayorDeEdad = edad >= 18; //mayorDeEdad será true
+		menorDeEdad = !mayorDeEdad; //menorDeEdad será false
+
+
 		// i = i & j;
 		// i&=j;
 		for(i=0;i<10;i++){
