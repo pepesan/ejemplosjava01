@@ -1,9 +1,7 @@
 package com.ejemplos.datos;
 
 
-import java.util.Arrays;
-
-public class EjemplosArrays {
+public class Arrays {
 
 	/**
 	 * @param
@@ -29,7 +27,7 @@ public class EjemplosArrays {
 		}
 		return s;
 	}
-	public static void main(String[] args) {
+	public static void main(String[] args) throws InterruptedException {
 		// Inicialización de un array
 		System.out.println("Array sencillo");
 		// tipo [] nombre = new tipo [numelementos];
@@ -86,7 +84,7 @@ public class EjemplosArrays {
 		System.out.println("Fin primer ejemplo Arrays Multidimensionales");
 		// Array multidimensional no simétrico
 		System.out.println("Array multidimensional sin una definida");
-		int notas[][]=new int[5][];//Hay 5 arrays de enteros
+		int[][] notas=new int[5][];//Hay 5 arrays de enteros
 		notas[0]=new int[2]; //El primer array es de 100 enteros
 		notas[1]=new int[3]; //El segundo de 230
 		notas[2]=new int[4];
@@ -129,8 +127,8 @@ public class EjemplosArrays {
 
 		// Clase Arrays
 		System.out.println("Clase Arrays");
-		int valores[]=new int[4];
-		Arrays.fill(valores,-1);//Todas la posiciciones del array valen -1
+		int[] valores=new int[4];
+		java.util.Arrays.fill(valores,-1);//Todas la posiciciones del array valen -1
 		System.out.println("Array Rellenado con Array.fill: " + valores);
 		System.out.println(valores[0]);
 		System.out.println("Array cambiado: " + valores);
@@ -138,11 +136,11 @@ public class EjemplosArrays {
 		// fromIndex (inclusive)
 		// toIndex (exclusive)
 		//Del elemento 1 al 2 valdrán
-		Arrays.fill(valores,1,3,-1);
+		java.util.Arrays.fill(valores,1,3,-1);
 
 		// int[] nums;
 		nums= new int[]{1, 2, 3, 4};
-		EjemplosArrays obja=new EjemplosArrays();
+		Arrays obja=new Arrays();
 		i=obja.sumaArray(nums);
 		System.out.println("sumaArray: "+ i);
 		int [][] dobleArray= new int [2][3];
@@ -183,7 +181,6 @@ public class EjemplosArrays {
 				valorEncontrado = true;
 				break;
 			}
-			i++;
 		}
 		System.out.println("ValorEncontrado: " + valorEncontrado);
 		System.out.println("posicion del array del valor entrado: " + i);
@@ -219,22 +216,23 @@ public class EjemplosArrays {
 			}
 		}
 		System.out.println("ordenacion");
-		int x[]={4,5,2,3,7,8,2,3,9,5};
-		Arrays.sort(x);//Estará ordenado
+		int[] x={4,5,2,3,7,8,2,3,9,5};
+		java.util.Arrays.sort(x);//Estará ordenado
 		for (int k : x){
 			System.out.println(k);
 		}
-		Arrays.sort(x,2,5);//Ordena del 2º al 4º elemento
+		// fromIndex (inclusive) toIndex (exclusive)
+		java.util.Arrays.sort(x,2,5);//Ordena del 2º al 4º elemento
 
 
 		int arrayRellenable[]=new int[23];
-		Arrays.fill(arrayRellenable,-1);//Todo el array vale -1
+		java.util.Arrays.fill(arrayRellenable,-1);//Todo el array vale -1
 
-		Arrays.fill(arrayRellenable,5,8,-1);//Del elemento 5 al 7 valdrán
+		java.util.Arrays.fill(arrayRellenable,5,8,-1);//Del elemento 5 al 7 valdrán
 
 		int uno[]={1,1,2};
 		int dos[]=new int [10];
-		Arrays.fill(dos,0);
+		java.util.Arrays.fill(dos,0);
 		System.arraycopy(uno, 0, dos, 0, uno.length);
 		for (i=0;i<10;i++){
 			System.out.print(dos[i]+" ");
@@ -250,10 +248,14 @@ public class EjemplosArrays {
 		}
 		try {
 			System.out.println(nums[3]);
-		}catch (Exception e){
+		}catch (Exception miExcepcion){
 			System.out.println("ups ha petado algo ");
+			System.out.println(miExcepcion.getClass().getName());
+			System.out.println(miExcepcion.getMessage());
+			miExcepcion.printStackTrace();
 		}
-
+		Thread.sleep(100);
+		System.out.println("Fin de Ejemplo");
 	}
 
 }
