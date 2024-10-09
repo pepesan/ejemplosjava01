@@ -26,12 +26,14 @@ public class Cadenas {
 		System.out.println("length: longitud en caracteres");
 		System.out.println(texto1.length());
 		System.out.println("Hola Mundo!".length());
+
 		System.out.println("Referencias");
+		texto1 = "Mi Texto original";
 		String texto2; // = null;
 		texto2=texto1;
 		System.out.println(texto1);
 		System.out.println(texto2);
-		if(texto1== texto2){
+		if(texto1 == texto2){
 			System.out.println("Ambas referencias son iguales");
 		}
 		if (texto1.equals(texto2)){
@@ -40,12 +42,17 @@ public class Cadenas {
 		System.out.println(texto2);
 		// cambio de valor por nuevo objeto
 		System.out.println("cambio de valor con referencia");
-		texto2 = "Prueba";
-		if(texto1== texto2){
+		texto1 = "Mi Texto original"; // new
+		texto2 = "Otro Texto"; // new
+		if(texto1 == texto2){
 			System.out.println("Ambas referencias son iguales");
+		}else {
+			System.out.println("Ambas referencias No son iguales");
 		}
 		if (texto1.equals(texto2)){
 			System.out.println("Ambos textos son iguales");
+		}else {
+			System.out.println("Ambos textos No son iguales");
 		}
 		System.out.println(texto2);
 
@@ -72,7 +79,7 @@ public class Cadenas {
 		s+="Adios Mundo";
 		// La referencia s ha perdido el enlace al primer objeto
 		// La referencia s ahora apunta a otro objeto
-		// El recolector de basura eventualmnente liberará la memoria del primer objeto
+		// El recolector de basura eventualmente liberará la memoria del primer objeto
 		System.out.println(s);
 		System.out.println(s.length());
 		// String Buffer
@@ -100,7 +107,9 @@ public class Cadenas {
 		}
 		char c;
 		System.out.println("charAt");
-		c=s2.charAt(0);
+		// qué caracter está en una posición concreta
+		texto1 = "Hola Texto";
+		c=texto1.charAt(0);
 		System.out.println(c);
 		System.out.println("substring");
 		// start (inclusive), fin (exclusive)
@@ -134,6 +143,7 @@ public class Cadenas {
 		s = "  test string  ";
 		System.out.printf("'%s'%n", s);
 		System.out.println("strip");
+		// está diseñado para eliminar todos los espacios en blanco, incluidos los espacios Unicode
 		String striped = s.strip();
 		System.out.printf("strip():%n '%s'%n", striped);
 		System.out.println("trim");
@@ -178,7 +188,7 @@ public class Cadenas {
 		s= "\uD83D\uDC83 Woman Dancing";
 		System.out.println(s); //Woman Dancing EMOJI
 
-		// De momento no funciona XD (Marzo 2023)
+		// De momento no funciona XD (Sept 2024 - java 21)
 		// String vampire🧛 = "\uD83E\uDDDB";
 
 
