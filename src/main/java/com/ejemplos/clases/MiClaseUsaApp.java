@@ -1,6 +1,6 @@
 package com.ejemplos.clases;
 
-public class AppUsaMiClase {
+public class MiClaseUsaApp {
     public static void main(String[] args) {
         MiClase miObjeto;
         miObjeto=new MiClase();

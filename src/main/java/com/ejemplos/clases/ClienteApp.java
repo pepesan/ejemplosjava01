@@ -1,6 +1,6 @@
 package com.ejemplos.clases;
 
-public class AppCliente {
+public class ClienteApp {
     public static void main(String[] args) {
         Cliente cliente;
         cliente = new Cliente();
