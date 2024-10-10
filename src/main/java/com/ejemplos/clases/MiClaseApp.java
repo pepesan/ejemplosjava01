@@ -7,6 +7,11 @@ public class MiClaseApp {
         MiClase miClase = new MiClase();
         miClase.numAlumnos = 17;
         System.out.println(miClase.numAlumnos);
+        // no tengo acceso al atributo nombre
+        // porque es privado
+        //System.out.println(miClase.nombre);
+        // accedemos al atributo mediante
+        // funciones públicas
         System.out.println(miClase.getNombre());
         // constructora con un parámetro
         // declara otro objeto diferentes
