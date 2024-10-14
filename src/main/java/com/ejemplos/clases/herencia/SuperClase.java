@@ -51,9 +51,9 @@ public class SuperClase {
 	System.out.println("Hace algo");
 	}
 	
-	protected void finalize() throws Throwable{
-		//cosas que quiero hacer al destruir el objeto
-	}
+//	protected void finalize() throws Throwable{
+//		//cosas que quiero hacer al destruir el objeto
+//	}
 	
 	/**
 	 * @param args

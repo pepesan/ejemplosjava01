@@ -20,11 +20,16 @@ public class ConsultableApp {
         // parte común entre implementaciones
         // uso de la implementación en base al interfaz
         // no varía entre implementaciones
-        consultable.findAll();
-        consultable.findByID(1);
-        Usuario usuario = new Usuario();
-        consultable.save(usuario);
-        consultable.update(1, usuario);
-        consultable.delete(1);
+        Usuario [] usuarios = consultable.findAll();
+        System.out.println(usuarios);
+        Usuario usuario = consultable.findByID(1);
+        System.out.println(usuario);
+        usuario = new Usuario();
+        Integer ret = consultable.save(usuario);
+        System.out.println(ret);
+        Boolean retorno = consultable.update(1, usuario);
+        System.out.println(retorno);
+        retorno= consultable.delete(1);
+        System.out.println(retorno);
     }
 }

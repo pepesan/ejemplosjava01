@@ -8,6 +8,5 @@ public class MadreHijaApp {
         Hija hija = new Hija();
         hija.setName("Teresa");
         System.out.println(hija.getName());
-
     }
 }
