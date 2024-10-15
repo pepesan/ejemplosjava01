@@ -46,9 +46,11 @@ public class Colecciones {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		// Objeto que es un listado de objetos
-		// array List de usa para datos que caso no cambian
+		// ArrayList se usa para datos que caso no cambian
+		// usan de base un array para guardar los datos
 		List <Object> listadoDeObjetos= new ArrayList<>();
-		// linked list se usa para datos cambiantes
+		// LinkedList se usa para datos cambiantes
+		// usa de base referencias de un objeto al siguiente
 		listadoDeObjetos = new LinkedList<>();
 		// Añade un elemento al listado
 		listadoDeObjetos.add(2);
@@ -70,7 +72,11 @@ public class Colecciones {
 
 
 		System.out.println(listadoDeObjetos.get(3));
+		// devuelve el numerot de elementos de array
+		System.out.println(listadoDeObjetos.size());
+		// borra un elemento por su posición en el array
 		listadoDeObjetos.remove(2);
+		// ahora debería haber un elemento menos
 		System.out.println(listadoDeObjetos.size());
 		// Inicializamos otro objeto pero con una implementación diferente
 		List<String> listado=new LinkedList<String>();

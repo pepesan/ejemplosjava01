@@ -15,6 +15,10 @@ public class BoxApp {
 
         integerBox.setDato(Integer.valueOf(10));
         stringBox.setDato(new String("Hello World"));
+        // comprueba que el tipo de dato que manejamos
+        // es correcto
+        // por lo que esto no sería válido
+        //stringBox.setDato(Integer.valueOf(10));
 
         System.out.printf("Integer Value :%d\n\n", integerBox.getDato());
         System.out.printf("String Value :%s\n", stringBox.getDato());
