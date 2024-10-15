@@ -1,10 +1,10 @@
 package com.ejemplos.excepciones;
 
 class Limites extends Exception {}
-class demasiadoCalor extends Limites {}
-class demasiadoFrio extends Limites {}
-class demasiadoRapido extends Limites {}
-class demasiadoCansado extends Limites {}
+class DemasiadoCalor extends Limites {}
+class DemasiadoFrio extends Limites {}
+class DemasiadoRapido extends Limites {}
+class DemasiadoCansado extends Limites {}
    
 public class Excepciones {
 	public static void main(String[] args) {
@@ -16,7 +16,9 @@ public class Excepciones {
 			int c = a/b;
 		}catch (Exception e){
 			System.out.println("Primera excepción");
+			System.out.println(e.getClass().getName());
 			System.out.println(e.getLocalizedMessage());
+			e.printStackTrace();
 			if (e.getLocalizedMessage().equals("/ by zero")){
 				System.out.println("por favor , introduzca un número en b que no sea cero");
 			}
@@ -74,15 +76,15 @@ public class Excepciones {
 		int dormir=7;
 		try {
 			if( temp > 40 )
-		    	throw( new demasiadoCalor() );
+		    	throw( new DemasiadoCalor() );
 		if( dormir < 8 )
-			throw( new demasiadoCansado() );
+			throw( new DemasiadoCansado() );
 		} catch( Limites lim ) {
-			if( lim instanceof demasiadoCalor ){
+			if( lim instanceof DemasiadoCalor){
 				System.out.println( "Capturada excesivo calor!" );
 		            return;
 			}
-			if( lim instanceof demasiadoCansado ) {
+			if( lim instanceof DemasiadoCansado) {
 				System.out.println( "Capturada excesivo cansancio!" );
 				return;
 			}
