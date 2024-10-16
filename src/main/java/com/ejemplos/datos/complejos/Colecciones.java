@@ -79,6 +79,7 @@ public class Colecciones {
 		// ahora debería haber un elemento menos
 		System.out.println(listadoDeObjetos.size());
 		// Inicializamos otro objeto pero con una implementación diferente
+		System.out.println("Listado de cadenas");
 		List<String> listado=new LinkedList<String>();
 		// no puedo meter otra cosa que no sea String
 		// listado.add(2);
@@ -91,10 +92,11 @@ public class Colecciones {
 		System.out.println(listado.get(0));
 		// devuelve el número de caracteres de la string en la primera posición
 		System.out.println(listado.get(0).length());
-
+		System.out.println("imprimimos el listado");
 		imprimeListado(listado);
 		// quita un elemento en base a su posición
 		listado.remove(1);
+		System.out.println("imprimimos el listado con elemento borrado");
 		imprimeListado(listado);
 		System.out.println(listado.size());
 		System.out.println("metiendo dos valores iguales");
@@ -110,10 +112,13 @@ public class Colecciones {
 		listado.set(0,"modificado");
 		imprimeListado(listado);
 		listado.remove(0);
+		System.out.println("imprimimos el listado con elemento borrado");
 		imprimeListado(listado);
 		System.out.println(listado.get(0));
 		if(listado.isEmpty()){
 			System.out.println("Listado Vacio");
+		}else {
+			System.out.println("Listado NO Vacio");
 		}
 		listado.add("Uno");
 		if(listado.contains("uno")){
@@ -139,8 +144,12 @@ public class Colecciones {
 		imprimeListado(listado);
 		// Ordenado
 		Collections.sort(listado);
+		System.out.println("sort(listado)");
+		System.out.println(listado);
 		// Inverso
 		Collections.sort(listado, Collections.reverseOrder());
+		System.out.println("sort(listado, Collections.reverseOrder())");
+		System.out.println(listado);
 
 		// definimos una clase como dato a almacenar en el listado
 		// definimos el tamaño inicial del array donde guarda el listado
@@ -153,7 +162,7 @@ public class Colecciones {
 		d1.setCalle("Madrid");
 		d1.setNumero("12");
 		listadoDirecciones.add(d1);
-		listadoDirecciones.add(new Direccion("19","Salamanca"));
+		listadoDirecciones.add(new Direccion("Salamanca","19"));
 		listadoDirecciones.sort(Comparator.comparing(Direccion::toString));
 		System.out.println("Imprimiendo listado de direcciones");
 		for (Direccion d :listadoDirecciones) {
@@ -246,6 +255,7 @@ public class Colecciones {
 		mapa.put(2,"Valor11");
 		mapa.put(3,"Valor10");
 		System.out.println(mapa.get(0));
+		// modfificación de un valor almacenado
 		mapa.put(0,"Otro Valor");
 		System.out.println(mapa.get(0));
 		mapa.remove(0);
