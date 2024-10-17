@@ -13,7 +13,8 @@ public class Ficheros {
 
 			// escritura
 			Path path = Files.writeString(
-					Files.createTempFile("test", ".txt"), "test file content");
+					Files.createTempFile("test", ".txt"),
+					"test file content");
 			System.out.println(path);
 			String s = Files.readString(path);
 			System.out.println(s);
